@@ -22,4 +22,9 @@ class DessinTest2 {
         assertEquals(listFig,d.listerFigures());
     }
 
+    @Test
+    public void testPaint(){
+        
+    }
+
 }

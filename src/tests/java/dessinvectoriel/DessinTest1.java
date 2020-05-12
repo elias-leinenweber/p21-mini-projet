@@ -16,7 +16,6 @@ class DessinTest1 {
         d = new Dessin("La Joconde","Leonard de Vinci",200,200);
     }
 
-
     @Test
     void testGetAuteur(){
         assertEquals("Leonard de Vinci",d.getAuteur());
