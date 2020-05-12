@@ -8,10 +8,12 @@ import java.time.LocalDate;
 
 class DessinTest1 {
 
+    Dessin d;
+
     @BeforeEach
     void setUp()
     {
-        Dessin d = new Dessin("La Joconde","Leonard de Vinci",200,200);
+        d = new Dessin("La Joconde","Leonard de Vinci",200,200);
     }
 
     @Test
@@ -41,7 +43,7 @@ class DessinTest1 {
 
     @Test
     void testGetHauteur(){
-        assertEquals(200,d.getAuteur());
+        assertEquals(200,d.getHauteur());
     }
 
     @Test
@@ -49,7 +51,7 @@ class DessinTest1 {
         assertEquals("Auteur : " + d.getAuteur() + "\n" +
                     "Titre : " + d.getTitre() + "\n" +
                     "Date de création : " + d.getDateCreation().toString() + "\n" +
-                    "Dimensions : " + d.getLargeur() + "x" + d.getHauteur()
+                    "Dimensions : " + d.getLargeur() + "x" + d.getHauteur()+ "\n" +
                     "Figures : "+d.listerFigures().toString(),d.toString());
     }
 
@@ -62,7 +64,7 @@ class DessinTest1 {
     @Test
     void testSetTitre(){
         d.setTitre("ednocoJ aL");
-        assertEquals(d.getTitre());
+        assertEquals("ednocoJ aL",d.getTitre());
     }
 
     @Test
