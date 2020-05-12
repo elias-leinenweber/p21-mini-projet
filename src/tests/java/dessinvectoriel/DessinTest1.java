@@ -16,10 +16,6 @@ class DessinTest1 {
         d = new Dessin("La Joconde","Leonard de Vinci",200,200);
     }
 
-    @Test
-    void testListerFigures(){
-        
-    }
 
     @Test
     void testGetAuteur(){
@@ -83,11 +79,6 @@ class DessinTest1 {
     void testSetHauteur(){
         d.setHauteur(300);
         assertEquals(300,d.getHauteur());
-    }
-
-    @Test
-    void testAjouterFigure(){
-
     }
 
 }
