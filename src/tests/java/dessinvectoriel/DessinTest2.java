@@ -21,10 +21,6 @@ class DessinTest2 {
         Figure[] listFig = {new Rectangle(new Vecteur(0,0),10,5)};
         assertEquals(listFig,d.listerFigures());
     }
-
-    @Test
-    public void testPaint(){
-        
-    }
+    
 
 }
