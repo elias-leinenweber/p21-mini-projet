@@ -1,8 +1,8 @@
 package dessinvectoriel;
 
 public class Vecteur {
-	private double x;
-	private double y;
+	private final double x;
+	private final double y;
 
 
 	public Vecteur(double x, double y)
@@ -13,7 +13,8 @@ public class Vecteur {
 
 	public Vecteur(double rayon, Angle orientation)
 	{
-		// TODO implement
+		x = rayon * orientation.cos();
+		y = rayon * orientation.sin();
 	}
 
 
