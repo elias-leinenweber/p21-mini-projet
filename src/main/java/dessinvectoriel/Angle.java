@@ -5,12 +5,12 @@ public class Angle {
 	public static final Angle DROIT = Angle.degres(90);
 	public static final Angle PLAT = Angle.degres(180);
 
-	private double mesure;
+	private final double mesure;
 
 
 	public Angle(double rad)
 	{
-		// TODO implement
+		mesure = rad;
 	}
 
 
