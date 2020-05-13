@@ -5,18 +5,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
- * La classe {@code Dessin} ...
+ * La classe {@code Dessin} étend la classe {@link Canvas} afin d'y
+ * ajouter des métadonnées telles que l'auteur, le titre, la date de
+ * création et les dimensions, ainsi qu'une collection de
+ * {@link Figure}.
  */
 public class Dessin extends Canvas {
-	private ArrayList<Figure> figures;
+	private final ArrayList<Figure> figures;
 	private String auteur;
 	private String titre;
 	private LocalDate dateCreation;
 	private int largeur;
 	private int hauteur;
 
+
 	/**
-	 * Construit un objet {@code Dessin}.
+	 * Construit un nouvel objet {@code Dessin}.
 	 *
 	 * @param titre le titre du dessin
 	 * @param auteur l'auteur du dessin
@@ -47,16 +51,28 @@ public class Dessin extends Canvas {
 	}
 
 
+	/**
+	 * Ajoute une {@link Figure} à la liste des figures du {@code Dessin}.
+	 * @param f la {@link Figure} à ajouter.
+	 */
 	public void ajouterFigure(Figure f)
 	{
 		figures.add(f);
 	}
 
+	/**
+	 * Retourne un tableau des figures.
+	 * @return
+	 */
 	public Figure[] listerFigures()
 	{
 		return figures.toArray(Figure[]::new);
 	}
 
+	/**
+	 * Retourne une représentation en chaîne
+	 * @return
+	 */
 	@Override
 	public String toString()
 	{
@@ -66,6 +82,10 @@ public class Dessin extends Canvas {
 		       "Dimensions : " + largeur + "x" + hauteur;
 	}
 
+	/**
+	 * Peint le dessin.
+	 * @param g le contexte {@link Graphics} spécifié
+	 */
 	@Override
 	public void paint(Graphics g)
 	{
@@ -74,19 +94,26 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Retourne l'auteur du dessin.
-	 *
-	 * @return l'auteur du dessin
+	 * @return l'auteur du dessin.
 	 */
 	public String getAuteur()
 	{
 		return auteur;
 	}
 
+	/**
+	 * Remplace l'auteur du dessin.
+	 * @param auteur
+	 */
 	public void setAuteur(String auteur)
 	{
 		this.auteur = auteur;
 	}
 
+	/**
+	 * Retourne le titre du dessin.
+	 * @return le titre du dessin.
+	 */
 	public String getTitre()
 	{
 		return titre;
