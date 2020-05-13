@@ -16,10 +16,12 @@ class DessinTest2 {
 
     @Test
     public void testListerEtAjouterFigures1(){
-        d.ajouterFigure(new Rectangle(new Vecteur(0,0),10,5));
+        Rectangle r = new Rectangle(new Vecteur(0,0),10,5);
 
-        Figure[] listFig = {new Rectangle(new Vecteur(0,0),10,5)};
-        assertEquals(listFig,d.listerFigures());
+        d.ajouterFigure(r);
+        Figure[] listFig = {r};
+
+        assertArrayEquals(listFig,d.listerFigures());
     }
 
     @Test
@@ -29,7 +31,7 @@ class DessinTest2 {
 
         d.ajouterFigure(new Rectangle(new Vecteur(0,0),10,5));
 
-        assertEquals(vide,listFig);
+        assertArrayEquals(vide,listFig);
 
     }
     
