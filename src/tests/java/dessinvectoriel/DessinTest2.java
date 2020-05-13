@@ -15,11 +15,22 @@ class DessinTest2 {
     }
 
     @Test
-    public void testListerEtAjouterFigures(){
+    public void testListerEtAjouterFigures1(){
         d.ajouterFigure(new Rectangle(new Vecteur(0,0),10,5));
 
         Figure[] listFig = {new Rectangle(new Vecteur(0,0),10,5)};
         assertEquals(listFig,d.listerFigures());
+    }
+
+    @Test
+    public void testListerEtAjouterFigures2(){
+        Figure[] vide = {};
+        Figure[] listFig = d.listerFigures();
+
+        d.ajouterFigure(new Rectangle(new Vecteur(0,0),10,5));
+
+        assertEquals(vide,listFig);
+
     }
     
 
