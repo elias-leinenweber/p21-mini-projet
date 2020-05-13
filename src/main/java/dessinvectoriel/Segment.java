@@ -51,7 +51,7 @@ public class Segment extends Figure {
 	@Override
 	public void redimensionner(double facteur)
 	{
-		// TODO implement
+		longueur *= facteur;
 	}
 
 	@Override

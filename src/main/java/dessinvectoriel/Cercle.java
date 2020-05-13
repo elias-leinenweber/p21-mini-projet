@@ -3,7 +3,7 @@ package dessinvectoriel;
 import java.awt.*;
 
 public class Cercle extends Surface {
-	private final double rayon;
+	private double rayon;
 
 
 	public Cercle(Vecteur position, double r)
@@ -37,21 +37,19 @@ public class Cercle extends Surface {
 	@Override
 	public double surface()
 	{
-		// TODO implement
-		return 0;
+		return Math.PI * (rayon * rayon);
 	}
 
 	@Override
 	public double perimetre()
 	{
-		// TODO implement
-		return 0;
+		return 2 * Math.PI * rayon;
 	}
 
 	@Override
 	public void redimensionner(double facteur)
 	{
-		// TODO implement
+		rayon *= facteur;
 	}
 
 	@Override

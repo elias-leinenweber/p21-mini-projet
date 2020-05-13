@@ -30,20 +30,17 @@ public class Vecteur {
 
 	public Vecteur ajouter(Vecteur autre)
 	{
-		// TODO implement
-		return null;
+		return new Vecteur(x + autre.x, y + autre.y);
 	}
 
 	public Vecteur oppose()
 	{
-		// TODO implement
-		return null;
+		return new Vecteur(-x, -y);
 	}
 
 	public Vecteur soustraire(Vecteur autre)
 	{
-		// TODO implement
-		return null;
+		return new Vecteur(x - autre.x, y - autre.y);
 	}
 
 	public Vecteur multiplier(double facteur)
@@ -58,14 +55,12 @@ public class Vecteur {
 
 	public Angle orientation()
 	{
-		// TODO implement
-		return null;
+		return Angle.atan(x, y);
 	}
 
 	@Override
 	public String toString()
 	{
-		// TODO implement
-		return null;
+		return String.format("(%f, %f)", x, y);
 	}
 }

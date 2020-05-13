@@ -3,8 +3,8 @@ package dessinvectoriel;
 import java.awt.*;
 
 public class Rectangle extends Surface {
-	private final double longueur;
-	private final double largeur;
+	private double longueur;
+	private double largeur;
 
 
 	public Rectangle(Vecteur position, double longueur, double largeur)
@@ -72,7 +72,8 @@ public class Rectangle extends Surface {
 	@Override
 	public void redimensionner(double facteur)
 	{
-		// TODO implement
+		longueur *= facteur;
+		largeur *= facteur;
 	}
 
 	@Override

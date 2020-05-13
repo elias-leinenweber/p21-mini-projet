@@ -10,7 +10,7 @@ public class Angle {
 
 	public Angle(double rad)
 	{
-		mesure = rad;
+		mesure = rad % (2 * Math.PI);
 	}
 
 
@@ -22,8 +22,7 @@ public class Angle {
 
 	public static Angle radians(double rad)
 	{
-		// TODO implement
-		return null;
+		return new Angle(rad);
 	}
 
 	public double getDegres()
@@ -58,26 +57,22 @@ public class Angle {
 
 	public double sin()
 	{
-		// TODO implement
-		return 0.0;
+		return Math.sin(mesure);
 	}
 
 	public double cos()
 	{
-		// TODO implement
-		return 0.0;
+		return Math.cos(mesure);
 	}
 
 	public static Angle atan(double dX, double dY)
 	{
-		// TODO implement
-		return null;
+		return new Angle(Math.atan2(dY, dX));
 	}
 
 	@Override
 	public String toString()
 	{
-		// TODO implement
-		return null;
+		return Double.toString(mesure);
 	}
 }
