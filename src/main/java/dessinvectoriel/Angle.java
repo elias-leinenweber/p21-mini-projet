@@ -16,8 +16,7 @@ public class Angle {
 
 	public static Angle degres(double deg)
 	{
-		// TODO implement
-		return null;
+		return new Angle((deg / 180) * Math.PI);
 	}
 
 	public static Angle radians(double rad)

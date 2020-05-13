@@ -38,8 +38,8 @@ public class Segment extends Figure {
 
 	public Vecteur getExtremite()
 	{
-		// TODO implement
-		return null;
+		Vecteur vecteurDirecteur = new Vecteur(getOrientation().cos(), getOrientation().sin());
+		return getPosition().ajouter(vecteurDirecteur.multiplier(longueur));
 	}
 
 	@Override
