@@ -39,7 +39,7 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 *
+	 * Construit un nouvel objet {@code Dessin}.
 	 * @param titre
 	 * @param auteur
 	 * @param largeur
@@ -52,8 +52,9 @@ public class Dessin extends Canvas {
 
 
 	/**
-	 * Ajoute une {@link Figure} à la liste des figures du {@code Dessin}.
-	 * @param f la {@link Figure} à ajouter.
+	 * Ajoute une {@link Figure} à la liste des figures du dessin.
+	 *
+	 * @param f  la {@link Figure} à ajouter
 	 */
 	public void ajouterFigure(Figure f)
 	{
@@ -71,7 +72,8 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Retourne une représentation en chaîne
-	 * @return
+	 *
+	 * @return une représentation en chaîne du dessin
 	 */
 	@Override
 	public String toString()
@@ -84,7 +86,8 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Peint le dessin.
-	 * @param g le contexte {@link Graphics} spécifié
+	 *
+	 * @param g  le contexte {@link Graphics} spécifié
 	 */
 	@Override
 	public void paint(Graphics g)
@@ -94,7 +97,8 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Retourne l'auteur du dessin.
-	 * @return l'auteur du dessin.
+	 *
+	 * @return l'auteur du dessin
 	 */
 	public String getAuteur()
 	{
@@ -103,7 +107,8 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Remplace l'auteur du dessin.
-	 * @param auteur
+	 *
+	 * @param auteur  le nouvel auteur
 	 */
 	public void setAuteur(String auteur)
 	{
@@ -112,43 +117,79 @@ public class Dessin extends Canvas {
 
 	/**
 	 * Retourne le titre du dessin.
-	 * @return le titre du dessin.
+	 *
+	 * @return le titre du dessin
 	 */
 	public String getTitre()
 	{
 		return titre;
 	}
 
+	/**
+	 * Remplace le titre du dessin.
+	 *
+	 * @param titre  le nouveau titre
+	 */
 	public void setTitre(String titre)
 	{
 		this.titre = titre;
 	}
 
+	/**
+	 * Retourne la date de création du dessin.
+	 *
+	 * @return la date de création du dessin
+	 */
 	public LocalDate getDateCreation()
 	{
 		return dateCreation;
 	}
 
+	/**
+	 * Remplace la date de création actuelle du dessin.
+	 *
+	 * @param dateCreation  la nouvelle date de création
+	 */
 	public void setDateCreation(LocalDate dateCreation)
 	{
 		this.dateCreation = dateCreation;
 	}
 
+	/**
+	 * Retourne la largeur du dessin.
+	 *
+	 * @return la largeur du dessin
+	 */
 	public int getLargeur()
 	{
 		return largeur;
 	}
 
+	/**
+	 * Remplace la largeur actuelle du dessin.
+	 *
+	 * @param largeur  la nouvelle largeur
+	 */
 	public void setLargeur(int largeur)
 	{
 		this.largeur = largeur;
 	}
 
+	/**
+	 * Retourne la hauteur du dessin.
+	 *
+	 * @return la hauteur du dessin
+	 */
 	public int getHauteur()
 	{
 		return hauteur;
 	}
 
+	/**
+	 * Remplace la hauteur actuelle du dessin.
+	 *
+	 * @param hauteur  la nouvelle hauteur
+	 */
 	public void setHauteur(int hauteur)
 	{
 		this.hauteur = hauteur;
