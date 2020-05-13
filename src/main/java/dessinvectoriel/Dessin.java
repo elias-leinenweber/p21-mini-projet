@@ -2,12 +2,13 @@ package dessinvectoriel;
 
 import java.awt.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * La classe {@code Dessin} ...
  */
 public class Dessin extends Canvas {
-	private Figure[] figures;
+	private ArrayList<Figure> figures;
 	private String auteur;
 	private String titre;
 	private LocalDate dateCreation;
@@ -25,6 +26,7 @@ public class Dessin extends Canvas {
 	 */
 	public Dessin(String titre, String auteur, LocalDate dateCreation, int largeur, int hauteur)
 	{
+		figures = new ArrayList<>();
 		this.titre = titre;
 		this.auteur = auteur;
 		this.dateCreation = dateCreation;
@@ -47,13 +49,12 @@ public class Dessin extends Canvas {
 
 	public void ajouterFigure(Figure f)
 	{
-		// TODO implement
+		figures.add(f);
 	}
 
 	public Figure[] listerFigures()
 	{
-		// TODO implement
-		return null;
+		return figures.toArray(Figure[]::new);
 	}
 
 	@Override
