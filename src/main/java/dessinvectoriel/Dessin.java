@@ -7,16 +7,15 @@ import java.util.ArrayList;
 /**
  * La classe {@code Dessin} étend la classe {@link Canvas} afin d'y
  * ajouter des métadonnées telles que l'auteur, le titre, la date de
- * création et les dimensions, ainsi qu'une collection de
- * {@link Figure}.
+ * création et les dimensions, ainsi qu'une collection de figures.
+ *
+ * @see Figure
  */
 public class Dessin extends Canvas {
 	private final ArrayList<Figure> figures;
-	private String auteur;
-	private String titre;
+	private String auteur, titre;
 	private LocalDate dateCreation;
-	private int largeur;
-	private int hauteur;
+	private int largeur, hauteur;
 
 
 	/**
@@ -24,7 +23,7 @@ public class Dessin extends Canvas {
 	 *
 	 * @param titre le titre du dessin
 	 * @param auteur l'auteur du dessin
-	 * @param dateCreation la date de création
+	 * @param dateCreation la date de création du dessin
 	 * @param largeur la largeur du dessin
 	 * @param hauteur la hauteur du dessin
 	 */
@@ -39,11 +38,13 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 * Construit un nouvel objet {@code Dessin}.
-	 * @param titre
-	 * @param auteur
-	 * @param largeur
-	 * @param hauteur
+	 * Construit un nouvel objet {@code Dessin} ayant la date du
+	 * jour comme date de création.
+	 *
+	 * @param titre le titre du dessin
+	 * @param auteur l'auteur du dessin
+	 * @param largeur la largeur du dessin
+	 * @param hauteur la hauteur du dessin
 	 */
 	public Dessin(String titre, String auteur, int largeur, int hauteur)
 	{
@@ -54,7 +55,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Ajoute une {@link Figure} à la liste des figures du dessin.
 	 *
-	 * @param f  la {@link Figure} à ajouter
+	 * @param f la {@link Figure} à ajouter
 	 */
 	public void ajouterFigure(Figure f)
 	{
@@ -62,16 +63,20 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 * Retourne un tableau des figures.
-	 * @return
+	 * Retourne un tableau contenant toutes les figures du dessin.
+	 *
+	 * @return la liste des figures
+	 * @since 11
 	 */
 	public Figure[] listerFigures()
 	{
+		// ATTENTION Syntaxe compatible uniquement avec Java 11 et plus.
 		return figures.toArray(Figure[]::new);
 	}
 
 	/**
-	 * Retourne une représentation en chaîne
+	 * Retourne une chaîne de caractères contenant l'ensemble des
+	 * attributs du dessin.
 	 *
 	 * @return une représentation en chaîne du dessin
 	 */
@@ -85,14 +90,17 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 * Peint le dessin.
+	 * Peint le dessin en appelant la méthode {@link Figure#dessiner}
+	 * sur chaque figure du dessin.
 	 *
-	 * @param g  le contexte {@link Graphics} spécifié
+	 * @param g le contexte {@link Graphics} spécifié
 	 */
 	@Override
 	public void paint(Graphics g)
 	{
-		Graphics2D g2d = (Graphics2D)g;
+		Graphics2D g2d;
+
+		g2d = (Graphics2D)g;
 		for (Figure f : figures)
 			f.dessiner(g2d);
 	}
@@ -110,7 +118,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Remplace l'auteur du dessin.
 	 *
-	 * @param auteur  le nouvel auteur
+	 * @param auteur le nouvel auteur
 	 */
 	public void setAuteur(String auteur)
 	{
@@ -130,7 +138,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Remplace le titre du dessin.
 	 *
-	 * @param titre  le nouveau titre
+	 * @param titre le nouveau titre
 	 */
 	public void setTitre(String titre)
 	{
@@ -150,7 +158,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Remplace la date de création actuelle du dessin.
 	 *
-	 * @param dateCreation  la nouvelle date de création
+	 * @param dateCreation la nouvelle date de création
 	 */
 	public void setDateCreation(LocalDate dateCreation)
 	{
@@ -170,7 +178,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Remplace la largeur actuelle du dessin.
 	 *
-	 * @param largeur  la nouvelle largeur
+	 * @param largeur la nouvelle largeur
 	 */
 	public void setLargeur(int largeur)
 	{
@@ -190,7 +198,7 @@ public class Dessin extends Canvas {
 	/**
 	 * Remplace la hauteur actuelle du dessin.
 	 *
-	 * @param hauteur  la nouvelle hauteur
+	 * @param hauteur la nouvelle hauteur
 	 */
 	public void setHauteur(int hauteur)
 	{
