@@ -1,6 +1,8 @@
-package dessinvectoriel;
+package dessinvectoriel.dessinTests;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import dessinvectoriel.Dessin;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

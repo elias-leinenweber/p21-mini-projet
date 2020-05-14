@@ -1,5 +1,6 @@
-package dessinvectoriel;
+package dessinvectoriel.dessinTests;
 
+import dessinvectoriel.Dessin;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

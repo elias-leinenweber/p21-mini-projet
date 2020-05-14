@@ -1,5 +1,9 @@
-package dessinvectoriel;
+package dessinvectoriel.dessinTests;
 
+import dessinvectoriel.Dessin;
+import dessinvectoriel.Figure;
+import dessinvectoriel.Rectangle;
+import dessinvectoriel.Vecteur;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
