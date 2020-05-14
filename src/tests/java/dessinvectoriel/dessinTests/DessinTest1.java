@@ -49,7 +49,7 @@ class DessinTest1 {
                     "Titre : " + d.getTitre() + "\n" +
                     "Date de création : " + d.getDateCreation().toString() + "\n" +
                     "Dimensions : " + d.getLargeur() + "x" + d.getHauteur()+ "\n" +
-                    "Figures : "+d.listerFigures().toString(),d.toString());
+                    "Figures : []",d.toString());
     }
 
     @Test

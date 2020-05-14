@@ -30,11 +30,11 @@ public class Dessin extends Canvas {
 	public Dessin(String titre, String auteur, LocalDate dateCreation, int largeur, int hauteur)
 	{
 		figures = new ArrayList<>();
-		this.titre = titre;
-		this.auteur = auteur;
-		this.dateCreation = dateCreation;
-		this.largeur = largeur;
-		this.hauteur = hauteur;
+		setTitre(titre);
+		setAuteur(auteur);
+		setDateCreation(dateCreation);
+		setLargeur(largeur);
+		setHauteur(hauteur);
 	}
 
 	/**
@@ -59,6 +59,8 @@ public class Dessin extends Canvas {
 	 */
 	public void ajouterFigure(Figure f)
 	{
+		if (f == null)
+			throw new IllegalArgumentException("Figure nulle.");
 		figures.add(f);
 	}
 
@@ -86,7 +88,8 @@ public class Dessin extends Canvas {
 		return "Auteur : " + auteur + "\n" +
 		       "Titre : " + titre + "\n" +
 		       "Date de création : " + dateCreation + "\n" +
-		       "Dimensions : " + largeur + "x" + hauteur;
+		       "Dimensions : " + largeur + "x" + hauteur + "\n" +
+		       "Figures : " + figures;
 	}
 
 	/**
@@ -100,6 +103,8 @@ public class Dessin extends Canvas {
 	{
 		Graphics2D g2d;
 
+		if (g == null)
+			throw new IllegalArgumentException("Contexte nul.");
 		g2d = (Graphics2D)g;
 		for (Figure f : figures)
 			f.dessiner(g2d);
@@ -122,6 +127,8 @@ public class Dessin extends Canvas {
 	 */
 	public void setAuteur(String auteur)
 	{
+		if (auteur == null || auteur.isBlank())
+			throw new IllegalArgumentException("Auteur nul ou vide.");
 		this.auteur = auteur;
 	}
 
@@ -142,6 +149,8 @@ public class Dessin extends Canvas {
 	 */
 	public void setTitre(String titre)
 	{
+		if (titre == null || titre.isBlank())
+			throw new IllegalArgumentException("Titre nul ou vide.");
 		this.titre = titre;
 	}
 
@@ -162,6 +171,8 @@ public class Dessin extends Canvas {
 	 */
 	public void setDateCreation(LocalDate dateCreation)
 	{
+		if (dateCreation == null || dateCreation.isAfter(LocalDate.now()))
+			throw new IllegalArgumentException("Date nulle ou invalide.");
 		this.dateCreation = dateCreation;
 	}
 
@@ -182,6 +193,8 @@ public class Dessin extends Canvas {
 	 */
 	public void setLargeur(int largeur)
 	{
+		if (largeur < 0)
+			throw new IllegalArgumentException("Largeur invalide.");
 		this.largeur = largeur;
 	}
 
@@ -202,6 +215,8 @@ public class Dessin extends Canvas {
 	 */
 	public void setHauteur(int hauteur)
 	{
+		if (hauteur < 0)
+			throw new IllegalArgumentException("Hauteur invalide.");
 		this.hauteur = hauteur;
 	}
 }
