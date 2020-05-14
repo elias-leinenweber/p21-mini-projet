@@ -1,7 +1,6 @@
 package dessinvectoriel;
 
 import java.awt.*;
-import java.util.Objects;
 
 public abstract class Surface extends Figure {
 	private static Color couleurRemplissageParDefaut = null;
@@ -21,14 +20,14 @@ public abstract class Surface extends Figure {
 	public Surface(Vecteur position, Angle orientation, Color couleurTrait, Integer epaisseurTrait, Color couleurRemplissage)
 	{
 		super(position, orientation, couleurTrait, epaisseurTrait);
-		Objects.requireNonNull(couleurRemplissage);
-		this.couleurRemplissage = couleurRemplissage;
+		setCouleurRemplissage(couleurRemplissage);
 	}
 
 
 	public void setCouleurRemplissage(Color couleurRemplissage)
 	{
-		Objects.requireNonNull(couleurRemplissage);
+		if (couleurRemplissage == null)
+			throw new IllegalArgumentException("Couleur remplissage nulle.");
 		this.couleurRemplissage = couleurRemplissage;
 	}
 
@@ -54,7 +53,8 @@ public abstract class Surface extends Figure {
 
 	public static void setCouleurRemplissageParDefaut(Color couleurRemplissageParDefaut)
 	{
-		Objects.requireNonNull(couleurRemplissageParDefaut);
+		if (couleurRemplissageParDefaut == null)
+			throw new IllegalArgumentException("Couleur remplissage par défaut nulle.");
 		Surface.couleurRemplissageParDefaut = couleurRemplissageParDefaut;
 	}
 }

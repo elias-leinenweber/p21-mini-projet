@@ -10,19 +10,23 @@ public class Point extends Figure {
 
 	public Point(Vecteur position, Color couleur, int epaisseurTrait)
 	{
-		super(position, null, couleur, epaisseurTrait);
+		super(position);
+		setCouleurTrait(couleur);
+		setEpaisseurTrait(epaisseurTrait);
 	}
 
 	public Point(int x, int y)
 	{
-		this(new Vecteur(x, y));
+		super(new Vecteur(x, y));
 	}
 
 
 	public void dessiner(Graphics2D g)
 	{
-		int x = (int)getPosition().getX();
-		int y = (int)getPosition().getY();
+		int x, y;
+
+		x = (int)getPosition().getX();
+		y = (int)getPosition().getY();
 		g.drawLine(x, y, x, y);
 	}
 

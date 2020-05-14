@@ -3,8 +3,7 @@ package dessinvectoriel;
 import java.awt.*;
 
 public class Rectangle extends Surface {
-	private double longueur;
-	private double largeur;
+	private double largeur, longueur;
 
 
 	public Rectangle(Vecteur position, double longueur, double largeur)
@@ -21,7 +20,7 @@ public class Rectangle extends Surface {
 		this.largeur = largeur;
 	}
 
-	public Rectangle(Vecteur position, Angle orientation, double longueur, double largeur, Color couleurTrait, Integer epaisseurTrait, Color couleurRemplissage)
+	public Rectangle(Vecteur position, Angle orientation, double longueur, double largeur, Color couleurTrait, int epaisseurTrait, Color couleurRemplissage)
 	{
 		super(position, orientation, couleurTrait, epaisseurTrait, couleurRemplissage);
 		this.longueur = longueur;
@@ -60,13 +59,16 @@ public class Rectangle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		Vecteur position = getPosition();
+		Vecteur position;
+
+		position = getPosition();
 		g.drawRect((int)position.getX(), (int)position.getY(), (int)longueur, (int)largeur);
 	}
 
 	public Rectangle copier()
 	{
-		return new Rectangle(getPosition(), getOrientation(), longueur, largeur, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
+		// TODO implement
+		return null;
 	}
 
 	@Override

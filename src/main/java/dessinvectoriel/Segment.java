@@ -1,7 +1,6 @@
 package dessinvectoriel;
 
 import java.awt.*;
-import java.util.Objects;
 
 public class Segment extends Figure {
 	private double longueur;
@@ -16,7 +15,8 @@ public class Segment extends Figure {
 	public Segment(Vecteur origine, Vecteur extremite)
 	{
 		super(origine);
-		Objects.requireNonNull(extremite);
+		if (extremite == null)
+			throw new IllegalArgumentException("Extremité nulle.");
 		longueur = extremite.soustraire(origine).longueur();
 	}
 
@@ -40,16 +40,21 @@ public class Segment extends Figure {
 
 	public Vecteur getExtremite()
 	{
-		Vecteur vecteurDirecteur = new Vecteur(getOrientation().cos(), getOrientation().sin());
+		Vecteur vecteurDirecteur;
+
+		vecteurDirecteur = new Vecteur(getOrientation().cos(), getOrientation().sin());
 		return getPosition().ajouter(vecteurDirecteur.multiplier(longueur));
 	}
 
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		Vecteur origine = getOrigine();
-		Vecteur extremite = getExtremite();
-		g.drawLine((int)origine.getX(), (int)origine.getY(), (int)extremite.getX(), (int)extremite.getY());
+		Vecteur extremite;
+
+		if (g == null)
+			throw new IllegalArgumentException("Contexte nul.");
+		extremite = getExtremite();
+		g.drawLine((int)getOrigine().getX(), (int)getOrigine().getY(), (int)extremite.getX(), (int)extremite.getY());
 	}
 
 	@Override

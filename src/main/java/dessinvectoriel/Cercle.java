@@ -14,8 +14,10 @@ public class Cercle extends Surface {
 
 	public Cercle(Vecteur position, double r, Color couleur, Integer epaisseurTrait, Color couleurRemplissage)
 	{
-		super(position, null, couleur, epaisseurTrait, couleurRemplissage);
-		rayon = r;
+		this(position, r);
+		setCouleurTrait(couleur);
+		setEpaisseurTrait(epaisseurTrait);
+		setCouleurRemplissage(couleurRemplissage);
 	}
 
 
@@ -55,15 +57,19 @@ public class Cercle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		Vecteur position = getPosition();
-		int diametre = (int)getDiametre();
+		Vecteur position;
+		int diametre;
+
+		position = getPosition();
+		diametre = (int)getDiametre();
 		g.drawOval((int)position.getX(), (int)position.getY(), diametre, diametre);
 	}
 
 	@Override
 	public Figure copier()
 	{
-		return new Cercle(getPosition(), rayon, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
+		// TODO implement
+		return null;
 	}
 
 	@Override
