@@ -1,5 +1,7 @@
 package dessinvectoriel;
 
+import java.util.Objects;
+
 public class Vecteur {
 	private final double x;
 	private final double y;
@@ -13,6 +15,7 @@ public class Vecteur {
 
 	public Vecteur(double rayon, Angle orientation)
 	{
+		Objects.requireNonNull(orientation);
 		x = rayon * orientation.cos();
 		y = rayon * orientation.sin();
 	}

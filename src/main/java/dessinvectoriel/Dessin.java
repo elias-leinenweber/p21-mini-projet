@@ -92,7 +92,9 @@ public class Dessin extends Canvas {
 	@Override
 	public void paint(Graphics g)
 	{
-		// TODO implement
+		Graphics2D g2d = (Graphics2D)g;
+		for (Figure f : figures)
+			f.dessiner(g2d);
 	}
 
 	/**

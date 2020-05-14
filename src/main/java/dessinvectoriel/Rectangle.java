@@ -60,13 +60,13 @@ public class Rectangle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		// TODO implement
+		Vecteur position = getPosition();
+		g.drawRect((int)position.getX(), (int)position.getY(), (int)longueur, (int)largeur);
 	}
 
 	public Rectangle copier()
 	{
-		// TODO implement
-		return null;
+		return new Rectangle(getPosition(), getOrientation(), longueur, largeur, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
 	}
 
 	@Override

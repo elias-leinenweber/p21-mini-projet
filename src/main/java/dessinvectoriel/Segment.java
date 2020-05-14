@@ -1,6 +1,7 @@
 package dessinvectoriel;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class Segment extends Figure {
 	private double longueur;
@@ -15,6 +16,7 @@ public class Segment extends Figure {
 	public Segment(Vecteur origine, Vecteur extremite)
 	{
 		super(origine);
+		Objects.requireNonNull(extremite);
 		longueur = extremite.soustraire(origine).longueur();
 	}
 
@@ -45,7 +47,9 @@ public class Segment extends Figure {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		// TODO implement
+		Vecteur origine = getOrigine();
+		Vecteur extremite = getExtremite();
+		g.drawLine((int)origine.getX(), (int)origine.getY(), (int)extremite.getX(), (int)extremite.getY());
 	}
 
 	@Override
@@ -64,7 +68,7 @@ public class Segment extends Figure {
 	@Override
 	public String toString()
 	{
-		// TODO implement
-		return null;
+		return "Origine : " + getOrigine() + "\n" +
+		       "Extremité : " + getExtremite();
 	}
 }

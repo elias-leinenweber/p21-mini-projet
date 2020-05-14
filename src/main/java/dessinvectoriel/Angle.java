@@ -8,7 +8,7 @@ public class Angle {
 	private final double mesure;
 
 
-	public Angle(double rad)
+	private Angle(double rad)
 	{
 		mesure = rad % (2 * Math.PI);
 	}
@@ -26,32 +26,27 @@ public class Angle {
 
 	public double getDegres()
 	{
-		// TODO implement
-		return 0.0;
+		return (mesure / Math.PI) * 180;
 	}
 
 	public double getRadians()
 	{
-		// TODO implement
-		return 0.0;
+		return mesure;
 	}
 
 	public Angle ajouterDegres(double deg)
 	{
-		// TODO implement
-		return null;
+		return ajouterRadians((deg / 180) * Math.PI);
 	}
 
 	public Angle ajouterRadians(double rad)
 	{
-		// TODO implement
-		return null;
+		return new Angle(mesure + rad);
 	}
 
 	public Angle ajouter(Angle theta)
 	{
-		// TODO implement
-		return null;
+		return ajouterRadians(theta.mesure);
 	}
 
 	public double sin()

@@ -1,6 +1,7 @@
 package dessinvectoriel;
 
 import java.awt.*;
+import java.util.Objects;
 
 public abstract class Figure {
 	private static int epaisseurTraitParDefaut = 1;
@@ -13,22 +14,29 @@ public abstract class Figure {
 
 	public Figure(Vecteur position, Angle orientation, Color couleur, int epaisseurTrait)
 	{
-		// TODO implement
+		this(position, orientation);
+		Objects.requireNonNull(couleur);
+		couleurTrait = couleur;
+		setEpaisseurTrait(epaisseurTrait);
 	}
 
 	public Figure(Vecteur position, Angle orientation)
 	{
-		// TODO implement
+		this(position);
+		Objects.requireNonNull(orientation);
+		this.orientation = orientation;
 	}
 
 	public Figure(Vecteur position)
 	{
-		// TODO implement
+		Objects.requireNonNull(position);
+		this.position = position;
 	}
 
 
 	public void setCouleurTrait(Color couleur)
 	{
+		Objects.requireNonNull(couleur);
 		couleurTrait = couleur;
 	}
 
@@ -50,6 +58,7 @@ public abstract class Figure {
 
 	public void setPosition(Vecteur position)
 	{
+		Objects.requireNonNull(position);
 		this.position = position;
 	}
 
@@ -60,6 +69,7 @@ public abstract class Figure {
 
 	public void setOrientation(Angle orientation)
 	{
+		Objects.requireNonNull(orientation);
 		this.orientation = orientation;
 	}
 
@@ -76,17 +86,24 @@ public abstract class Figure {
 
 	public void deplacer(double deltaX, double deltaY)
 	{
-		// TODO implement
+		position = position.ajouter(new Vecteur(deltaX, deltaY));
 	}
 
 	public void tourner(double angle)
 	{
-		// TODO implement
+		orientation = orientation.ajouter(Angle.radians(angle));
 	}
 
 	public void tournerAutour(Vecteur centre, Angle angle)
 	{
-		// TODO implement
+		Objects.requireNonNull(centre);
+		Objects.requireNonNull(angle);
+		Vecteur delta = centre.soustraire(position);
+		double deltaX = delta.getX();
+		double deltaY = delta.getY();
+		deplacer(deltaX, deltaY);
+		tourner(angle.getRadians());
+		deplacer(-deltaX, -deltaY);
 	}
 
 	public abstract void redimensionner(double facteur);

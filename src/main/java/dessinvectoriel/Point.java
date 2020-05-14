@@ -21,13 +21,14 @@ public class Point extends Figure {
 
 	public void dessiner(Graphics2D g)
 	{
-		// TODO implement
+		int x = (int)getPosition().getX();
+		int y = (int)getPosition().getY();
+		g.drawLine(x, y, x, y);
 	}
 
 	@Override
 	public void redimensionner(double facteur)
 	{
-		// TODO implement
 	}
 
 	@Override
@@ -40,7 +41,6 @@ public class Point extends Figure {
 	@Override
 	public String toString()
 	{
-		// TODO implement
-		return null;
+		return "Position : " + getPosition();
 	}
 }

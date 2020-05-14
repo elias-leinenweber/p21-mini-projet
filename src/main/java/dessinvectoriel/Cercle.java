@@ -55,21 +55,22 @@ public class Cercle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		// TODO implement
+		Vecteur position = getPosition();
+		int diametre = (int)getDiametre();
+		g.drawOval((int)position.getX(), (int)position.getY(), diametre, diametre);
 	}
 
 	@Override
 	public Figure copier()
 	{
-		// TODO implement
-		return null;
+		return new Cercle(getPosition(), rayon, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
 	}
 
 	@Override
 	public String toString()
 	{
-		// TODO implement
-		return null;
+		return "Position : " + getPosition() + "\n" +
+		       "Rayon : " + rayon;
 	}
 
 }
