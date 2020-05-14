@@ -1,10 +1,7 @@
 package dessinvectoriel;
 
-import java.util.Objects;
-
 public class Vecteur {
-	private final double x;
-	private final double y;
+	private final double x, y;
 
 
 	public Vecteur(double x, double y)
@@ -15,7 +12,8 @@ public class Vecteur {
 
 	public Vecteur(double rayon, Angle orientation)
 	{
-		Objects.requireNonNull(orientation);
+		if (orientation == null)
+			throw new IllegalArgumentException("Orientation nulle.");
 		x = rayon * orientation.cos();
 		y = rayon * orientation.sin();
 	}
@@ -43,7 +41,7 @@ public class Vecteur {
 
 	public Vecteur soustraire(Vecteur autre)
 	{
-		return new Vecteur(x - autre.x, y - autre.y);
+		return ajouter(autre.oppose());
 	}
 
 	public Vecteur multiplier(double facteur)

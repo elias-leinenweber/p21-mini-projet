@@ -1,42 +1,41 @@
 package dessinvectoriel;
 
 import java.awt.*;
-import java.util.Objects;
 
 public abstract class Figure {
-	private static int epaisseurTraitParDefaut = 1;
+	private static Angle orientationParDefaut;
 	private static Color couleurTraitParDefaut = Color.BLACK;
+	private static int epaisseurTraitParDefaut = 1;
 
 	private Vecteur position;
 	private Angle orientation;
 	private Color couleurTrait;
+	private int epaisseurTrait;
 
 
 	public Figure(Vecteur position, Angle orientation, Color couleur, int epaisseurTrait)
 	{
 		this(position, orientation);
-		Objects.requireNonNull(couleur);
-		couleurTrait = couleur;
+		setCouleurTrait(couleur);
 		setEpaisseurTrait(epaisseurTrait);
 	}
 
 	public Figure(Vecteur position, Angle orientation)
 	{
 		this(position);
-		Objects.requireNonNull(orientation);
-		this.orientation = orientation;
+		setOrientation(orientation);
 	}
 
 	public Figure(Vecteur position)
 	{
-		Objects.requireNonNull(position);
-		this.position = position;
+		setPosition(position);
 	}
 
 
 	public void setCouleurTrait(Color couleur)
 	{
-		Objects.requireNonNull(couleur);
+		if (couleur == null)
+			throw new IllegalArgumentException("Couleur nulle.");
 		couleurTrait = couleur;
 	}
 
@@ -45,20 +44,20 @@ public abstract class Figure {
 		return couleurTrait;
 	}
 
-	public void setEpaisseurTrait(Integer epaisseurTrait)
+	public void setEpaisseurTrait(int epaisseurTrait)
 	{
-		// TODO implement
+		this.epaisseurTrait = epaisseurTrait;
 	}
 
-	public Integer getEpaisseurTrait()
+	public int getEpaisseurTrait()
 	{
-		// TODO implement
-		return null;
+		return epaisseurTrait;
 	}
 
 	public void setPosition(Vecteur position)
 	{
-		Objects.requireNonNull(position);
+		if (position == null)
+			throw new IllegalArgumentException("Position nulle.");
 		this.position = position;
 	}
 
@@ -69,7 +68,8 @@ public abstract class Figure {
 
 	public void setOrientation(Angle orientation)
 	{
-		Objects.requireNonNull(orientation);
+		if (orientation == null)
+			throw new IllegalArgumentException("Orientation nulle.");
 		this.orientation = orientation;
 	}
 
@@ -82,6 +82,7 @@ public abstract class Figure {
 
 	public abstract Figure copier();
 
+	@Override
 	public abstract String toString();
 
 	public void deplacer(double deltaX, double deltaY)
@@ -96,11 +97,16 @@ public abstract class Figure {
 
 	public void tournerAutour(Vecteur centre, Angle angle)
 	{
-		Objects.requireNonNull(centre);
-		Objects.requireNonNull(angle);
-		Vecteur delta = centre.soustraire(position);
-		double deltaX = delta.getX();
-		double deltaY = delta.getY();
+		Vecteur delta;
+		double deltaX, deltaY;
+
+		if (centre == null)
+			throw new IllegalArgumentException("Centre nul.");
+		if (angle == null)
+			throw new IllegalArgumentException("Angle nul.");
+		delta = centre.soustraire(position);
+		deltaX = delta.getX();
+		deltaY = delta.getY();
 		deplacer(deltaX, deltaY);
 		tourner(angle.getRadians());
 		deplacer(-deltaX, -deltaY);
@@ -116,13 +122,14 @@ public abstract class Figure {
 
 	public static Angle getOrientationParDefaut()
 	{
-		// TODO implement
-		return null;
+		return orientationParDefaut;
 	}
 
-	public static void setOrientationParDefaut()
+	public static void setOrientationParDefaut(Angle orientationParDefaut)
 	{
-		// TODO implement
+		if (orientationParDefaut == null)
+			throw new IllegalArgumentException("Orientation par défaut nulle.");
+		Figure.orientationParDefaut = orientationParDefaut;
 	}
 
 	public static int getEpaisseurTraitParDefaut()
@@ -142,6 +149,8 @@ public abstract class Figure {
 
 	public static void setCouleurTraitParDefaut(Color couleurTraitParDefaut)
 	{
+		if (couleurTraitParDefaut == null)
+			throw new IllegalArgumentException("Couleur trait par défaut nulle.");
 		Figure.couleurTraitParDefaut = couleurTraitParDefaut;
 	}
 }

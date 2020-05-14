@@ -36,12 +36,12 @@ public class Angle {
 
 	public Angle ajouterDegres(double deg)
 	{
-		return ajouterRadians((deg / 180) * Math.PI);
+		return degres(getDegres() + deg);
 	}
 
 	public Angle ajouterRadians(double rad)
 	{
-		return new Angle(mesure + rad);
+		return radians(getRadians() + rad);
 	}
 
 	public Angle ajouter(Angle theta)
