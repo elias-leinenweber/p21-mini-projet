@@ -12,7 +12,7 @@ public class Cercle extends Surface {
 		rayon = r;
 	}
 
-	public Cercle(Vecteur position, double r, Color couleur, Integer epaisseurTrait, Color couleurRemplissage)
+	public Cercle(Vecteur position, double r, Color couleur, int epaisseurTrait, Color couleurRemplissage)
 	{
 		this(position, r);
 		setCouleurTrait(couleur);
@@ -68,8 +68,8 @@ public class Cercle extends Surface {
 	@Override
 	public Figure copier()
 	{
-		// TODO implement
-		return null;
+		return new Cercle(getPosition(), rayon, getCouleurTrait(),
+		    getEpaisseurTrait(), getCouleurRemplissage());
 	}
 
 	@Override

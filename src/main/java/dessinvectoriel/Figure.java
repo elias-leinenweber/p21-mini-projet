@@ -3,7 +3,7 @@ package dessinvectoriel;
 import java.awt.*;
 
 public abstract class Figure {
-	private static Angle orientationParDefaut;
+	private static Angle orientationParDefaut = Angle.NUL;
 	private static Color couleurTraitParDefaut = Color.BLACK;
 	private static int epaisseurTraitParDefaut = 1;
 
@@ -15,20 +15,20 @@ public abstract class Figure {
 
 	public Figure(Vecteur position, Angle orientation, Color couleur, int epaisseurTrait)
 	{
-		this(position, orientation);
+		setPosition(position);
+		setOrientation(orientation);
 		setCouleurTrait(couleur);
 		setEpaisseurTrait(epaisseurTrait);
 	}
 
 	public Figure(Vecteur position, Angle orientation)
 	{
-		this(position);
-		setOrientation(orientation);
+		this(position, orientation, couleurTraitParDefaut, epaisseurTraitParDefaut);
 	}
 
 	public Figure(Vecteur position)
 	{
-		setPosition(position);
+		this(position, orientationParDefaut);
 	}
 
 

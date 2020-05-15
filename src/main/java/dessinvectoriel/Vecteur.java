@@ -31,6 +31,8 @@ public class Vecteur {
 
 	public Vecteur ajouter(Vecteur autre)
 	{
+		if (autre == null)
+			throw new IllegalArgumentException("Autre vecteur nul.");
 		return new Vecteur(x + autre.x, y + autre.y);
 	}
 
@@ -41,6 +43,8 @@ public class Vecteur {
 
 	public Vecteur soustraire(Vecteur autre)
 	{
+		if (autre == null)
+			throw new IllegalArgumentException("Autre vecteur nul.");
 		return ajouter(autre.oppose());
 	}
 

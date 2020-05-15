@@ -67,8 +67,9 @@ public class Rectangle extends Surface {
 
 	public Rectangle copier()
 	{
-		// TODO implement
-		return null;
+		return new Rectangle(getPosition(), getOrientation(), longueur,
+		    largeur, getCouleurTrait(), getEpaisseurTrait(),
+		    getCouleurRemplissage());
 	}
 
 	@Override

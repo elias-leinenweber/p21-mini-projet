@@ -9,15 +9,16 @@ public abstract class Surface extends Figure {
 
 	public Surface(Vecteur position)
 	{
-		super(position);
+		this(position, getOrientationParDefaut());
 	}
 
 	public Surface(Vecteur position, Angle orientation)
 	{
-		super(position, orientation);
+		this(position, orientation, getCouleurTraitParDefaut(),
+		    getEpaisseurTraitParDefaut(), couleurRemplissageParDefaut);
 	}
 
-	public Surface(Vecteur position, Angle orientation, Color couleurTrait, Integer epaisseurTrait, Color couleurRemplissage)
+	public Surface(Vecteur position, Angle orientation, Color couleurTrait, int epaisseurTrait, Color couleurRemplissage)
 	{
 		super(position, orientation, couleurTrait, epaisseurTrait);
 		setCouleurRemplissage(couleurRemplissage);
@@ -26,8 +27,9 @@ public abstract class Surface extends Figure {
 
 	public void setCouleurRemplissage(Color couleurRemplissage)
 	{
-		if (couleurRemplissage == null)
-			throw new IllegalArgumentException("Couleur remplissage nulle.");
+		// FIXME modifier couleurRemplissageParDefaut
+		//if (couleurRemplissage == null)
+		//	throw new IllegalArgumentException("Couleur remplissage nulle.");
 		this.couleurRemplissage = couleurRemplissage;
 	}
 
