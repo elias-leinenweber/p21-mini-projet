@@ -77,8 +77,9 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 * Retourne une chaîne de caractères contenant l'ensemble des
-	 * attributs du dessin.
+	 * Retourne une chaîne de caractères résumant les attributs du dessin.
+	 * <p>
+	 * Par exemple, <i>La Joconde par Léonard de Vinci (1503-10-01) 53x77</i>.
 	 *
 	 * @return une représentation en chaîne du dessin
 	 */
