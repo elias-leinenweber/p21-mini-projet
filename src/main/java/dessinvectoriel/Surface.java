@@ -44,8 +44,10 @@ public abstract class Surface extends Figure {
 
 	protected boolean initRemplissage(Graphics2D g)
 	{
-		// TODO implement
-		return false;
+		if (g == null)
+			throw new IllegalArgumentException("Contexte nul.");
+		g.setPaint(couleurRemplissage);
+		return true;
 	}
 
 	public static Color getCouleurRemplissageParDefaut()

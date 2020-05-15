@@ -57,11 +57,17 @@ public class Cercle extends Surface {
 	public void dessiner(Graphics2D g)
 	{
 		Vecteur position;
-		int diametre;
+		int diametre, x, y;
 
 		position = getPosition();
 		diametre = (int)getDiametre();
-		g.drawOval((int)position.getX(), (int)position.getY(), diametre, diametre);
+		x = (int)position.getX();
+		y = (int)position.getY();
+		if (initTrait(g)) {
+			g.drawOval(x, y, diametre, diametre);
+			if (initRemplissage(g))
+				g.fillOval(x, y, diametre, diametre);
+		}
 	}
 
 	@Override

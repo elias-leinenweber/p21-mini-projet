@@ -21,13 +21,15 @@ public class Point extends Figure {
 	}
 
 
+	@Override
 	public void dessiner(Graphics2D g)
 	{
 		int x, y;
 
 		x = (int)getPosition().getX();
 		y = (int)getPosition().getY();
-		g.drawLine(x, y, x, y);
+		if (initTrait(g))
+			g.drawLine(x, y, x, y);
 	}
 
 	@Override

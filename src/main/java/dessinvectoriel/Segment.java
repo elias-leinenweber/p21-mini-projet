@@ -51,10 +51,10 @@ public class Segment extends Figure {
 	{
 		Vecteur extremite;
 
-		if (g == null)
-			throw new IllegalArgumentException("Contexte nul.");
 		extremite = getExtremite();
-		g.drawLine((int)getOrigine().getX(), (int)getOrigine().getY(), (int)extremite.getX(), (int)extremite.getY());
+		if (initTrait(g))
+			g.drawLine((int)getOrigine().getX(), (int)getOrigine().getY(),
+			    (int)extremite.getX(), (int)extremite.getY());
 	}
 
 	@Override

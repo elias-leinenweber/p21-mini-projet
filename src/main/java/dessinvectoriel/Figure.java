@@ -116,8 +116,11 @@ public abstract class Figure {
 
 	protected boolean initTrait(Graphics2D g)
 	{
-		// TODO implement
-		return false;
+		if (g == null)
+			throw new IllegalArgumentException("Contexte nul.");
+		g.setStroke(new BasicStroke(epaisseurTrait));
+		g.setPaint(couleurTrait);
+		return true;
 	}
 
 	public static Angle getOrientationParDefaut()
