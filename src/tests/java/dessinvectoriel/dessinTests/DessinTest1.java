@@ -45,11 +45,10 @@ class DessinTest1 {
 
     @Test
     void testToString(){
-        assertEquals("Auteur : " + d.getAuteur() + "\n" +
-                    "Titre : " + d.getTitre() + "\n" +
-                    "Date de création : " + d.getDateCreation().toString() + "\n" +
-                    "Dimensions : " + d.getLargeur() + "x" + d.getHauteur()+ "\n" +
-                    "Figures : []",d.toString());
+        assertEquals(
+                d.getTitre() + " par " + d.getAuteur() + " (" + d.getDateCreation() + ") " + d.getLargeur() + "x" + d.getHauteur(),
+                d.toString()
+        );
     }
 
     @Test

@@ -85,11 +85,8 @@ public class Dessin extends Canvas {
 	@Override
 	public String toString()
 	{
-		return "Auteur : " + auteur + "\n" +
-		       "Titre : " + titre + "\n" +
-		       "Date de création : " + dateCreation + "\n" +
-		       "Dimensions : " + largeur + "x" + hauteur + "\n" +
-		       "Figures : " + figures;
+		return String.format("%s par %s (%s) %dx%d",
+		    titre, auteur, dateCreation, largeur, hauteur);
 	}
 
 	/**
