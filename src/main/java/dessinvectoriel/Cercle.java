@@ -8,16 +8,15 @@ public class Cercle extends Surface {
 
 	public Cercle(Vecteur position, double r)
 	{
-		super(position);
-		rayon = r;
+		this(position, r, getCouleurTraitParDefaut(),
+		   getEpaisseurTraitParDefaut(), getCouleurRemplissageParDefaut());
 	}
 
 	public Cercle(Vecteur position, double r, Color couleur, int epaisseurTrait, Color couleurRemplissage)
 	{
-		this(position, r);
-		setCouleurTrait(couleur);
-		setEpaisseurTrait(epaisseurTrait);
-		setCouleurRemplissage(couleurRemplissage);
+		super(position, getOrientationParDefaut(), couleur, epaisseurTrait,
+		    couleurRemplissage);
+		rayon = r;
 	}
 
 

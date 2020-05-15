@@ -55,8 +55,9 @@ public abstract class Surface extends Figure {
 
 	public static void setCouleurRemplissageParDefaut(Color couleurRemplissageParDefaut)
 	{
-		if (couleurRemplissageParDefaut == null)
-			throw new IllegalArgumentException("Couleur remplissage par défaut nulle.");
+		// FIXME
+		//if (couleurRemplissageParDefaut == null)
+		//	throw new IllegalArgumentException("Couleur remplissage par défaut nulle.");
 		Surface.couleurRemplissageParDefaut = couleurRemplissageParDefaut;
 	}
 }
