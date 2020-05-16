@@ -50,11 +50,15 @@ public class Segment extends Figure {
 	public void dessiner(Graphics2D g)
 	{
 		Vecteur extremite;
+		int x1, y1, x2, y2;
 
+		x1 = (int)getOrigine().getX();
+		y1 = (int)getOrigine().getY();
 		extremite = getExtremite();
+		x2 = (int)extremite.getX();
+		y2 = (int)extremite.getY();
 		if (initTrait(g))
-			g.drawLine((int)getOrigine().getX(), (int)getOrigine().getY(),
-			    (int)extremite.getX(), (int)extremite.getY());
+			g.drawLine(x1, y1, x2, y2);
 	}
 
 	@Override

@@ -8,14 +8,12 @@ public class Cercle extends Surface {
 
 	public Cercle(Vecteur position, double r)
 	{
-		this(position, r, getCouleurTraitParDefaut(),
-		   getEpaisseurTraitParDefaut(), getCouleurRemplissageParDefaut());
+		this(position, r, getCouleurTraitParDefaut(), getEpaisseurTraitParDefaut(), getCouleurRemplissageParDefaut());
 	}
 
 	public Cercle(Vecteur position, double r, Color couleur, int epaisseurTrait, Color couleurRemplissage)
 	{
-		super(position, getOrientationParDefaut(), couleur, epaisseurTrait,
-		    couleurRemplissage);
+		super(position, getOrientationParDefaut(), couleur, epaisseurTrait, couleurRemplissage);
 		rayon = r;
 	}
 
@@ -56,32 +54,27 @@ public class Cercle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		Vecteur position;
 		int diametre, x, y;
 
-		position = getPosition();
+		x = (int)getPosition().getX();
+		y = (int)getPosition().getY();
 		diametre = (int)getDiametre();
-		x = (int)position.getX();
-		y = (int)position.getY();
-		if (initTrait(g)) {
+		if (initTrait(g))
 			g.drawOval(x, y, diametre, diametre);
-			if (initRemplissage(g))
-				g.fillOval(x, y, diametre, diametre);
-		}
+		if (initRemplissage(g))
+			g.fillOval(x, y, diametre, diametre);
 	}
 
 	@Override
 	public Figure copier()
 	{
-		return new Cercle(getPosition(), rayon, getCouleurTrait(),
-		    getEpaisseurTrait(), getCouleurRemplissage());
+		return new Cercle(getPosition(), rayon, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Position : " + getPosition() + "\n" +
-		       "Rayon : " + rayon;
+		// TODO implement
+		return null;
 	}
-
 }

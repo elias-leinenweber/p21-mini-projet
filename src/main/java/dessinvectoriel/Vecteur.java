@@ -29,6 +29,18 @@ public class Vecteur {
 		return y;
 	}
 
+	/**
+	 * Ajoute un vecteur à ce vecteur. Calcule et renvoie la somme de ce vecteur et
+	 * d'un autre vecteur spécifié.
+	 * <p>
+	 * Si ce vecteur a les composantes (P<sub>x</sub>, P<sub>y</sub>) et l'autre
+	 * vecteur les composantes (Q<sub>x</sub>, Q<sub>y</sub>) le vecteur renvoyé
+	 * aura les composantes (P<sub>x</sub>+Q<sub>x</sub>,
+	 * P<sub>y</sub>+Q<sub>y</sub>).
+	 *
+	 * @param autre le vecteur à ajouter
+	 * @return la somme des deux vecteurs
+	 */
 	public Vecteur ajouter(Vecteur autre)
 	{
 		if (autre == null)

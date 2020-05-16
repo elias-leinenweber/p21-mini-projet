@@ -4,18 +4,20 @@ import java.awt.*;
 
 public abstract class Surface extends Figure {
 	private static Color couleurRemplissageParDefaut = null;
+
 	private Color couleurRemplissage;
 
 
 	public Surface(Vecteur position)
 	{
-		this(position, getOrientationParDefaut());
+		super(position);
+		setCouleurRemplissage(couleurRemplissageParDefaut);
 	}
 
 	public Surface(Vecteur position, Angle orientation)
 	{
-		this(position, orientation, getCouleurTraitParDefaut(),
-		    getEpaisseurTraitParDefaut(), couleurRemplissageParDefaut);
+		super(position, orientation);
+		setCouleurRemplissage(couleurRemplissageParDefaut);
 	}
 
 	public Surface(Vecteur position, Angle orientation, Color couleurTrait, int epaisseurTrait, Color couleurRemplissage)
@@ -27,9 +29,6 @@ public abstract class Surface extends Figure {
 
 	public void setCouleurRemplissage(Color couleurRemplissage)
 	{
-		// FIXME modifier couleurRemplissageParDefaut
-		//if (couleurRemplissage == null)
-		//	throw new IllegalArgumentException("Couleur remplissage nulle.");
 		this.couleurRemplissage = couleurRemplissage;
 	}
 
@@ -46,8 +45,11 @@ public abstract class Surface extends Figure {
 	{
 		if (g == null)
 			throw new IllegalArgumentException("Contexte nul.");
-		g.setPaint(couleurRemplissage);
-		return true;
+		if (couleurRemplissage != null) {
+			g.setPaint(couleurRemplissage);
+			return true;
+		}
+		return false;
 	}
 
 	public static Color getCouleurRemplissageParDefaut()
@@ -57,9 +59,6 @@ public abstract class Surface extends Figure {
 
 	public static void setCouleurRemplissageParDefaut(Color couleurRemplissageParDefaut)
 	{
-		// FIXME
-		//if (couleurRemplissageParDefaut == null)
-		//	throw new IllegalArgumentException("Couleur remplissage par défaut nulle.");
 		Surface.couleurRemplissageParDefaut = couleurRemplissageParDefaut;
 	}
 }

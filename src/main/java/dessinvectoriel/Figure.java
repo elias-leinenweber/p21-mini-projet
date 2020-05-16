@@ -46,6 +46,8 @@ public abstract class Figure {
 
 	public void setEpaisseurTrait(int epaisseurTrait)
 	{
+		if (epaisseurTrait < 0)
+			throw new IllegalArgumentException("Épaisseur trait négative.");
 		this.epaisseurTrait = epaisseurTrait;
 	}
 
@@ -119,8 +121,11 @@ public abstract class Figure {
 		if (g == null)
 			throw new IllegalArgumentException("Contexte nul.");
 		g.setStroke(new BasicStroke(epaisseurTrait));
-		g.setPaint(couleurTrait);
-		return true;
+		if (couleurTrait != null) {
+			g.setPaint(couleurTrait);
+			return true;
+		}
+		return false;
 	}
 
 	public static Angle getOrientationParDefaut()

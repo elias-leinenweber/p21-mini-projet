@@ -59,17 +59,14 @@ public class Rectangle extends Surface {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		Vecteur position;
 		int x, y;
 
-		position = getPosition();
-		x = (int)position.getX();
-		y = (int)position.getY();
-		if (initTrait(g)) {
+		x = (int)getPosition().getX();
+		y = (int)getPosition().getY();
+		if (initTrait(g))
 			g.drawRect(x, y, (int)longueur, (int)largeur);
-			if (initRemplissage(g))
-				g.fillRect(x, y, (int)longueur, (int)largeur);
-		}
+		if (initRemplissage(g))
+			g.fillRect(x, y, (int)longueur, (int)largeur);
 	}
 
 	public Rectangle copier()

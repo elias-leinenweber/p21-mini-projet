@@ -40,8 +40,7 @@ public class Point extends Figure {
 	@Override
 	public Figure copier()
 	{
-		// TODO implement
-		return null;
+		return new Point(getPosition(), getCouleurTrait(), getEpaisseurTrait());
 	}
 
 	@Override
