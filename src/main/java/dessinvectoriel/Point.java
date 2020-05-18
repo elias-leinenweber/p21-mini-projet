@@ -24,12 +24,13 @@ public class Point extends Figure {
 	@Override
 	public void dessiner(Graphics2D g)
 	{
-		int x, y;
+		int rayon, x, y;
 
 		x = (int)getPosition().getX();
 		y = (int)getPosition().getY();
+		rayon = getEpaisseurTrait() / 2;
 		if (initTrait(g))
-			g.fillOval(x, y, getEpaisseurTrait(), getEpaisseurTrait());
+			g.fillOval(x - rayon, y - rayon, getEpaisseurTrait(), getEpaisseurTrait());
 	}
 
 	@Override
