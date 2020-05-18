@@ -1,7 +1,6 @@
 package dessinvectoriel;
 
 import java.awt.*;
-import java.util.Arrays;
 
 public class Rectangle extends Surface {
 	private double	longueur;
@@ -55,12 +54,15 @@ public class Rectangle extends Surface {
 	public Vecteur[] getSommets()
 	{
 		Vecteur[] sommets;
+		Vecteur longEdge, shortEdge;
 
 		sommets = new Vecteur[4];
+		longEdge = new Vecteur(getLongueur(), getOrientation());
+		shortEdge = new Vecteur(getLargeur(), getOrientation().ajouter(Angle.degres(-90)));
 		sommets[0] = getPosition();
-		sommets[1] = new Vecteur(getLongueur(), getOrientation());
-		sommets[2] = new Vecteur(getLargeur(), getOrientation().ajouter(Angle.DROIT));
-		sommets[3] = sommets[1].ajouter(sommets[2]);
+		sommets[1] = sommets[0].ajouter(shortEdge);
+		sommets[2] = sommets[0].ajouter(longEdge).ajouter(shortEdge);
+		sommets[3] = sommets[0].ajouter(longEdge);
 		return sommets;
 	}
 
@@ -71,12 +73,16 @@ public class Rectangle extends Surface {
 		int[] xPoints, yPoints;
 
 		sommets = getSommets();
-		xPoints = Arrays.stream(sommets).map(Vecteur::getX).mapToInt(Double::intValue).toArray();
-		yPoints = Arrays.stream(sommets).map(Vecteur::getY).mapToInt(Double::intValue).toArray();
+		xPoints = new int[4];
+		yPoints = new int[4];
+		for (int i = 0; i < 4; ++i) {
+			xPoints[i] = (int)sommets[i].getX();
+			yPoints[i] = (int)sommets[i].getY();
+		}
 		if (initTrait(g))
 			g.drawPolygon(xPoints, yPoints, 4);
 		if (initRemplissage(g))
-			g.drawPolygon(xPoints, yPoints, 4);
+			g.fillPolygon(xPoints, yPoints, 4);
 	}
 
 	public Rectangle copier()

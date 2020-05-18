@@ -29,7 +29,7 @@ public class Point extends Figure {
 		x = (int)getPosition().getX();
 		y = (int)getPosition().getY();
 		if (initTrait(g))
-			g.drawLine(x, y, x, y);
+			g.fillOval(x, y, getEpaisseurTrait(), getEpaisseurTrait());
 	}
 
 	@Override
