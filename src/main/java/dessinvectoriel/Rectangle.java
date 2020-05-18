@@ -9,16 +9,14 @@ public class Rectangle extends Surface {
 
 	public Rectangle(Vecteur position, double longueur, double largeur)
 	{
-		super(position);
-		this.longueur = longueur;
-		this.largeur = largeur;
+		this(position, getOrientationParDefaut(), longueur, largeur);
 	}
 
 	public Rectangle(Vecteur position, Angle orientation, double longueur, double largeur)
 	{
-		super(position, orientation);
-		this.longueur = longueur;
-		this.largeur = largeur;
+		this(position, orientation, longueur, largeur,
+		    getCouleurTraitParDefaut(), getEpaisseurTraitParDefaut(),
+		    getCouleurRemplissageParDefaut());
 	}
 
 	public Rectangle(Vecteur position, Angle orientation, double longueur, double largeur, Color couleurTrait, int epaisseurTrait, Color couleurRemplissage)
@@ -57,12 +55,12 @@ public class Rectangle extends Surface {
 		Vecteur longEdge, shortEdge;
 
 		sommets = new Vecteur[4];
-		longEdge = new Vecteur(getLongueur(), getOrientation());
-		shortEdge = new Vecteur(getLargeur(), getOrientation().ajouter(Angle.degres(-90)));
+		longEdge = new Vecteur(longueur, getOrientation());
+		shortEdge = new Vecteur(largeur, getOrientation().ajouter(Angle.DROIT));
 		sommets[0] = getPosition();
-		sommets[1] = sommets[0].ajouter(shortEdge);
-		sommets[2] = sommets[0].ajouter(longEdge).ajouter(shortEdge);
-		sommets[3] = sommets[0].ajouter(longEdge);
+		sommets[1] = sommets[0].ajouter(longEdge);
+		sommets[2] = sommets[1].ajouter(shortEdge);
+		sommets[3] = sommets[0].ajouter(shortEdge);
 		return sommets;
 	}
 
