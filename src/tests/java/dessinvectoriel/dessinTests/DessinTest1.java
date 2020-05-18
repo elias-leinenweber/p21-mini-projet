@@ -46,7 +46,7 @@ class DessinTest1 {
     @Test
     void testToString(){
         assertEquals(
-                d.getTitre() + " par " + d.getAuteur() + " (" + d.getDateCreation() + ") " + d.getLargeur() + "x" + d.getHauteur(),
+                d.getTitre() + " par " + d.getAuteur() + " (" + d.getDateCreation() + ")",
                 d.toString()
         );
     }

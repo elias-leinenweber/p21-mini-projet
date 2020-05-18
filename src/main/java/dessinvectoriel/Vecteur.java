@@ -1,5 +1,10 @@
 package dessinvectoriel;
 
+/**
+ * La classe non modifiable {@code Vecteur} permet de gérer la position des
+ * figures dans un espace à 2 dimensions, avec deux coordonnées {@code x} et
+ * {@code y}.
+ */
 public class Vecteur {
 	private final double x, y;
 

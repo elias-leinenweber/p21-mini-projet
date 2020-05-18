@@ -29,6 +29,7 @@ public class Dessin extends Canvas {
 	 */
 	public Dessin(String titre, String auteur, LocalDate dateCreation, int largeur, int hauteur)
 	{
+		setSize(largeur, hauteur);
 		figures = new ArrayList<>();
 		setTitre(titre);
 		setAuteur(auteur);
@@ -79,15 +80,14 @@ public class Dessin extends Canvas {
 	/**
 	 * Retourne une chaîne de caractères résumant les attributs du dessin.
 	 * <p>
-	 * Par exemple, <i>La Joconde par Léonard de Vinci (1503-10-01) 53x77</i>.
+	 * Par exemple, <i>La Joconde par Léonard de Vinci (1503-10-01)</i>.
 	 *
 	 * @return une représentation en chaîne du dessin
 	 */
 	@Override
 	public String toString()
 	{
-		return String.format("%s par %s (%s) %dx%d",
-		    titre, auteur, dateCreation, largeur, hauteur);
+		return String.format("%s par %s (%s)", titre, auteur, dateCreation);
 	}
 
 	/**
