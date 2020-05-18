@@ -3,9 +3,9 @@ package dessinvectoriel;
 import java.awt.*;
 
 public abstract class Figure {
-	private static Angle orientationParDefaut = Angle.NUL;
-	private static Color couleurTraitParDefaut = Color.BLACK;
-	private static int epaisseurTraitParDefaut = 1;
+	private static Angle orientationParDefaut	= Angle.NUL;
+	private static Color couleurTraitParDefaut	= Color.BLACK;
+	private static int epaisseurTraitParDefaut	= 1;
 
 	private Vecteur position;
 	private Angle orientation;
@@ -34,8 +34,6 @@ public abstract class Figure {
 
 	public void setCouleurTrait(Color couleur)
 	{
-		if (couleur == null)
-			throw new IllegalArgumentException("Couleur nulle.");
 		couleurTrait = couleur;
 	}
 
@@ -100,7 +98,8 @@ public abstract class Figure {
 	 */
 	public void deplacer(double deltaX, double deltaY)
 	{
-		position = position.ajouter(new Vecteur(deltaX, deltaY));
+		if (deltaX != 0 || deltaY != 0)
+			position = position.ajouter(new Vecteur(deltaX, deltaY));
 	}
 
 	public void tourner(double angle)
@@ -110,19 +109,18 @@ public abstract class Figure {
 
 	public void tournerAutour(Vecteur centre, Angle angle)
 	{
-		Vecteur delta;
-		double deltaX, deltaY;
+		Vecteur translation;
 
 		if (centre == null)
 			throw new IllegalArgumentException("Centre nul.");
 		if (angle == null)
 			throw new IllegalArgumentException("Angle nul.");
-		delta = centre.soustraire(position);
-		deltaX = delta.getX();
-		deltaY = delta.getY();
-		deplacer(deltaX, deltaY);
+		translation = position.soustraire(centre);
 		tourner(angle.getRadians());
-		deplacer(-deltaX, -deltaY);
+		setPosition(centre.ajouter(new Vecteur(
+		    translation.getX() * angle.cos() - translation.getY() * angle.sin(),
+		    translation.getX() * angle.sin() + translation.getY() * angle.cos()
+		)));
 	}
 
 	public abstract void redimensionner(double facteur);

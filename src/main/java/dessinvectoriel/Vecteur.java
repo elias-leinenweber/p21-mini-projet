@@ -17,10 +17,10 @@ public class Vecteur {
 
 	public Vecteur(double rayon, Angle orientation)
 	{
-		if (orientation == null)
-			throw new IllegalArgumentException("Orientation nulle.");
 		if (rayon < 0)
 			throw new IllegalArgumentException("Rayon négatif.");
+		if (orientation == null)
+			throw new IllegalArgumentException("Orientation nulle.");
 		x = rayon * orientation.cos();
 		y = rayon * orientation.sin();
 	}

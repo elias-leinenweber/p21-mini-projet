@@ -46,6 +46,8 @@ public class Angle {
 
 	public Angle ajouter(Angle theta)
 	{
+		if (theta == null)
+			throw new IllegalArgumentException("Angle nul.");
 		return ajouterRadians(theta.mesure);
 	}
 
