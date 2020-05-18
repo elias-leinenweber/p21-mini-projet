@@ -78,6 +78,6 @@ public class Vecteur {
 	@Override
 	public String toString()
 	{
-		return String.format("(%f, %f)", x, y);
+		return String.format("(%f; %f)", x, y);
 	}
 }
