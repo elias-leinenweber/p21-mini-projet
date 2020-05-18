@@ -56,8 +56,8 @@ public class Cercle extends Surface {
 	{
 		int diametre, x, y;
 
-		x = (int)getPosition().getX();
-		y = (int)getPosition().getY();
+		x = (int)(getPosition().getX() - rayon);
+		y = (int)(getPosition().getY() - rayon);
 		diametre = (int)getDiametre();
 		if (initTrait(g))
 			g.drawOval(x, y, diametre, diametre);
