@@ -66,7 +66,7 @@ public class Cercle extends Surface {
 	}
 
 	@Override
-	public Figure copier()
+	public Cercle copier()
 	{
 		return new Cercle(getPosition(), rayon, getCouleurTrait(), getEpaisseurTrait(), getCouleurRemplissage());
 	}

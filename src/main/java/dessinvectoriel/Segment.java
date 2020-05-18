@@ -17,7 +17,9 @@ public class Segment extends Figure {
 		super(origine);
 		if (extremite == null)
 			throw new IllegalArgumentException("Extremité nulle.");
-		longueur = extremite.soustraire(origine).longueur();
+		Vecteur v = extremite.soustraire(origine);
+		setOrientation(v.orientation());
+		longueur = v.longueur();
 	}
 
 	public Segment(Vecteur position, Angle orientation, double longueur)
@@ -68,10 +70,9 @@ public class Segment extends Figure {
 	}
 
 	@Override
-	public Figure copier()
+	public Segment copier()
 	{
-		// TODO implement
-		return null;
+		return new Segment(getPosition(), getOrientation(), longueur, getCouleurTrait(), getEpaisseurTrait());
 	}
 
 	@Override

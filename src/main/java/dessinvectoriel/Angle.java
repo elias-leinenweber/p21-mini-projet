@@ -1,9 +1,9 @@
 package dessinvectoriel;
 
 public class Angle {
-	public static final Angle NUL = Angle.degres(0);
-	public static final Angle DROIT = Angle.degres(90);
-	public static final Angle PLAT = Angle.degres(180);
+	public static final Angle NUL	= Angle.degres(0);
+	public static final Angle DROIT	= Angle.degres(90);
+	public static final Angle PLAT	= Angle.degres(180);
 
 	private final double mesure;
 
@@ -16,7 +16,7 @@ public class Angle {
 
 	public static Angle degres(double deg)
 	{
-		return new Angle((deg / 180) * Math.PI);
+		return new Angle(Math.toRadians(deg));
 	}
 
 	public static Angle radians(double rad)
@@ -26,7 +26,7 @@ public class Angle {
 
 	public double getDegres()
 	{
-		return (mesure / Math.PI) * 180;
+		return Math.toDegrees(mesure);
 	}
 
 	public double getRadians()

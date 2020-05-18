@@ -82,11 +82,22 @@ public abstract class Figure {
 
 	public abstract void dessiner(Graphics2D g);
 
+	/**
+	 * Renvoie une copie de la figure.
+	 *
+	 * @return une copie de la figure
+	 */
 	public abstract Figure copier();
 
 	@Override
 	public abstract String toString();
 
+	/**
+	 * Déplace la figure du vecteur de coordonnées ({@code deltaX}, {@code deltaY}).
+	 *
+	 * @param deltaX la translation à appliquer sur l'axe des abscisses
+	 * @param deltaY la translation à appliquer sur l'axe des ordonnées
+	 */
 	public void deplacer(double deltaX, double deltaY)
 	{
 		position = position.ajouter(new Vecteur(deltaX, deltaY));
@@ -94,7 +105,7 @@ public abstract class Figure {
 
 	public void tourner(double angle)
 	{
-		orientation = orientation.ajouter(Angle.radians(angle));
+		orientation = orientation.ajouterRadians(angle);
 	}
 
 	public void tournerAutour(Vecteur centre, Angle angle)

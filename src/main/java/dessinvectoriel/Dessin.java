@@ -29,6 +29,7 @@ public class Dessin extends Canvas {
 	 */
 	public Dessin(String titre, String auteur, LocalDate dateCreation, int largeur, int hauteur)
 	{
+		setSize(largeur, hauteur);
 		figures = new ArrayList<>();
 		setTitre(titre);
 		setAuteur(auteur);
