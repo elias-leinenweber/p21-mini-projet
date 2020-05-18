@@ -14,6 +14,8 @@ public class Vecteur {
 	{
 		if (orientation == null)
 			throw new IllegalArgumentException("Orientation nulle.");
+		if (rayon < 0)
+			throw new IllegalArgumentException("Rayon négatif.");
 		x = rayon * orientation.cos();
 		y = rayon * orientation.sin();
 	}
