@@ -4,6 +4,8 @@ import dessinvectoriel.Vecteur;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class VecteurTest1 {
@@ -65,6 +67,7 @@ class VecteurTest1 {
 
     @Test
     void testToString(){
+    	Locale.setDefault(Locale.FRENCH);
         assertEquals("(2,000000; 2,000000)",v.toString());
     }
 }

@@ -40,4 +40,11 @@ class VecteurTest2 {
         }
     }
 
+	@Test
+	void testVecteur3()
+	{
+		Vecteur v = new Vecteur(1, Angle.DROIT);
+		assertEquals(0.0, v.getX(), 1e-10);
+		assertEquals(1.0, v.getY(), 1e-10);
+	}
 }

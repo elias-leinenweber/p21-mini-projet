@@ -131,8 +131,8 @@ public abstract class Figure {
 	{
 		if (g == null)
 			throw new IllegalArgumentException("Contexte nul.");
-		g.setStroke(new BasicStroke(epaisseurTrait));
 		if (couleurTrait != null) {
+			g.setStroke(new BasicStroke(epaisseurTrait));
 			g.setPaint(couleurTrait);
 			return true;
 		}
