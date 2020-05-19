@@ -17,9 +17,9 @@ public class Segment extends Figure {
 		super(origine);
 		if (extremite == null)
 			throw new IllegalArgumentException("Extremité nulle.");
-		Vecteur v = extremite.soustraire(origine);
-		setOrientation(v.orientation());
-		longueur = v.longueur();
+		Vecteur directeur = extremite.soustraire(origine);
+		setOrientation(directeur.orientation());
+		longueur = directeur.longueur();
 	}
 
 	public Segment(Vecteur position, Angle orientation, double longueur)
@@ -42,10 +42,7 @@ public class Segment extends Figure {
 
 	public Vecteur getExtremite()
 	{
-		Vecteur vecteurDirecteur;
-
-		vecteurDirecteur = new Vecteur(getOrientation().cos(), getOrientation().sin());
-		return getPosition().ajouter(vecteurDirecteur.multiplier(longueur));
+		return getOrigine().ajouter(new Vecteur(longueur, getOrientation()));
 	}
 
 	@Override

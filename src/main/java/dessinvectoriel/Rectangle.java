@@ -77,10 +77,10 @@ public class Rectangle extends Surface {
 			xPoints[i] = (int)sommets[i].getX();
 			yPoints[i] = (int)sommets[i].getY();
 		}
-		if (initTrait(g))
-			g.drawPolygon(xPoints, yPoints, 4);
 		if (initRemplissage(g))
 			g.fillPolygon(xPoints, yPoints, 4);
+		if (initTrait(g))
+			g.drawPolygon(xPoints, yPoints, 4);
 	}
 
 	public Rectangle copier()

@@ -104,7 +104,7 @@ public abstract class Figure {
 
 	public void tourner(double angle)
 	{
-		orientation = orientation.ajouterRadians(angle);
+		orientation = orientation.ajouterDegres(angle);
 	}
 
 	public void tournerAutour(Vecteur centre, Angle angle)
@@ -116,7 +116,7 @@ public abstract class Figure {
 		if (angle == null)
 			throw new IllegalArgumentException("Angle nul.");
 		translation = position.soustraire(centre);
-		tourner(angle.getRadians());
+		tourner(angle.getDegres());
 		setPosition(centre.ajouter(new Vecteur(
 		    translation.getX() * angle.cos() - translation.getY() * angle.sin(),
 		    translation.getX() * angle.sin() + translation.getY() * angle.cos()
@@ -127,9 +127,9 @@ public abstract class Figure {
 
 	protected boolean initTrait(Graphics2D g)
 	{
-		if (couleurTrait != null) {
-			g.setStroke(new BasicStroke(epaisseurTrait));
+		if (couleurTrait != null && epaisseurTrait > 0) {
 			g.setPaint(couleurTrait);
+			g.setStroke(new BasicStroke(epaisseurTrait));
 			return true;
 		}
 		return false;
