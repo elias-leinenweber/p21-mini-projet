@@ -101,8 +101,6 @@ public class Dessin extends Canvas {
 	{
 		Graphics2D g2d;
 
-		if (g == null)
-			throw new IllegalArgumentException("Contexte nul.");
 		g2d = (Graphics2D)g;
 		for (Figure f : figures)
 			f.dessiner(g2d);

@@ -127,8 +127,6 @@ public abstract class Figure {
 
 	protected boolean initTrait(Graphics2D g)
 	{
-		if (g == null)
-			throw new IllegalArgumentException("Contexte nul.");
 		if (couleurTrait != null) {
 			g.setStroke(new BasicStroke(epaisseurTrait));
 			g.setPaint(couleurTrait);
