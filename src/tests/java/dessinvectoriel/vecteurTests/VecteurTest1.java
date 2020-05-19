@@ -10,11 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VecteurTest1 {
 
-    Vecteur v;
+    Vecteur v, nul;
 
     @BeforeEach
     void setUp() {
         v = new Vecteur(2,2);
+        nul = new Vecteur(0, 0);
     }
 
     @Test
@@ -58,6 +59,7 @@ class VecteurTest1 {
     @Test
     void testLongueur() {
         assertEquals(Math.sqrt(8),v.longueur());
+        assertEquals(0, nul.longueur());
     }
 
     @Test
