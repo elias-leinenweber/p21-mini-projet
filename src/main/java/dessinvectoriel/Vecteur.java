@@ -82,9 +82,14 @@ public class Vecteur {
 		return Angle.atan(x, y);
 	}
 
+	/**
+	 * Renvoie une chaîne de caractères représentant la valeur ce vecteur.
+	 *
+	 * @return une chaîne de la forme (P<sub>x</sub>, P<sub>y</sub>)
+	 */
 	@Override
 	public String toString()
 	{
-		return String.format("(%f; %f)", x, y);
+		return String.format("(%f, %f)", x, y);
 	}
 }

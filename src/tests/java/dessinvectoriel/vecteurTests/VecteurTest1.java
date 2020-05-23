@@ -70,6 +70,6 @@ class VecteurTest1 {
     @Test
     void testToString(){
     	Locale.setDefault(Locale.FRENCH);
-        assertEquals("(2,000000; 2,000000)",v.toString());
+        assertEquals("(2,000000, 2,000000)",v.toString());
     }
 }

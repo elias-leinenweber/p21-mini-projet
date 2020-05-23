@@ -33,6 +33,13 @@ public class Point extends Figure {
 			g.fillOval(x - rayon, y - rayon, getEpaisseurTrait(), getEpaisseurTrait());
 	}
 
+	/**
+	 * Redimensionne ce point par le facteur spécifié.
+	 * <p>
+	 * Cette opération n'a aucun effet sur le point.
+	 *
+	 * @param facteur le facteur multiplicatif de redimensionnement
+	 */
 	@Override
 	public void redimensionner(double facteur)
 	{
