@@ -9,12 +9,29 @@ public class Vecteur {
 	private final double x, y;
 
 
+	/**
+	 * Initialise ce nouveau vecteur avec des coordonnées cartésiennes.
+	 *
+	 * @param x la composante x du vecteur
+	 * @param y la composante y du vecteur
+	 */
 	public Vecteur(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
 	}
 
+	/**
+	 * Initialise ce nouveau vecteur avec des coordonnées polaires.
+	 * <p>
+	 * Les formules de passage des coordonnées polaires (r, &theta;) d'un vecteur à
+	 * ses coordonnées cartésiennes (x, y) sont :
+	 * x = r cos &theta;, y = r sin &theta;.
+	 *
+	 * @param rayon la distance r de l'origine du repère à l'extrémité P du vecteur
+	 * @param orientation l'angle &theta; de rotation du vecteur par rapport à l'axe
+	 *                    des abscisses
+	 */
 	public Vecteur(double rayon, Angle orientation)
 	{
 		if (rayon < 0)
@@ -37,8 +54,9 @@ public class Vecteur {
 	}
 
 	/**
-	 * Ajoute un vecteur à ce vecteur. Calcule et renvoie la somme de ce vecteur et
-	 * d'un autre vecteur spécifié.
+	 * Ajoute un vecteur à ce vecteur.
+	 * Renvoie un nouveau vecteur qui est la somme de ce vecteur et de l'autre
+	 * vecteur spécifié.
 	 * <p>
 	 * Si ce vecteur a les composantes (P<sub>x</sub>, P<sub>y</sub>) et l'autre
 	 * vecteur les composantes (Q<sub>x</sub>, Q<sub>y</sub>) le vecteur renvoyé
