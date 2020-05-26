@@ -3,6 +3,7 @@ package dessinvectoriel;
 import java.awt.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * La classe {@code Dessin} étend la classe {@link Canvas} afin d'y
@@ -12,10 +13,12 @@ import java.util.ArrayList;
  * @see Figure
  */
 public class Dessin extends Canvas {
-	private final ArrayList<Figure> figures;
-	private String auteur, titre;
-	private LocalDate dateCreation;
-	private int largeur, hauteur;
+	private String			titre;
+	private String			auteur;
+	private LocalDate		dateCreation;
+	private int			largeur;
+	private int			hauteur;
+	private final ArrayList<Figure>	figures;
 
 
 	/**
@@ -52,59 +55,6 @@ public class Dessin extends Canvas {
 		this(titre, auteur, LocalDate.now(), largeur, hauteur);
 	}
 
-
-	/**
-	 * Ajoute une {@link Figure} à la liste des figures du dessin.
-	 *
-	 * @param f la {@link Figure} à ajouter
-	 */
-	public void ajouterFigure(Figure f)
-	{
-		if (f == null)
-			throw new IllegalArgumentException("Figure nulle.");
-		figures.add(f);
-	}
-
-	/**
-	 * Retourne un tableau contenant toutes les figures du dessin.
-	 *
-	 * @return la liste des figures
-	 * @since 11
-	 */
-	public Figure[] listerFigures()
-	{
-		// ATTENTION Syntaxe compatible uniquement avec Java 11 et plus.
-		return figures.toArray(Figure[]::new);
-	}
-
-	/**
-	 * Retourne une chaîne de caractères résumant les attributs du dessin.
-	 * <p>
-	 * Par exemple, <i>La Joconde par Léonard de Vinci (1503-10-01)</i>.
-	 *
-	 * @return une représentation en chaîne du dessin
-	 */
-	@Override
-	public String toString()
-	{
-		return String.format("%s par %s (%s)", titre, auteur, dateCreation);
-	}
-
-	/**
-	 * Peint le dessin en appelant la méthode {@link Figure#dessiner}
-	 * sur chaque figure du dessin.
-	 *
-	 * @param g le contexte {@link Graphics} spécifié
-	 */
-	@Override
-	public void paint(Graphics g)
-	{
-		Graphics2D g2d;
-
-		g2d = (Graphics2D)g;
-		for (Figure f : figures)
-			f.dessiner(g2d);
-	}
 
 	/**
 	 * Retourne l'auteur du dessin.
@@ -205,14 +155,70 @@ public class Dessin extends Canvas {
 	}
 
 	/**
-	 * Remplace la hauteur actuelle du dessin.
+	 * Modifie la hauteur de ce dessin.
 	 *
-	 * @param hauteur la nouvelle hauteur
+	 * @param hauteur un entier indiquant la hauteur à donner à ce dessin en nombre
+	 *                de pixels
+	 * @throws IllegalArgumentException si la nouvelle hauteur est négative
 	 */
 	public void setHauteur(int hauteur)
 	{
 		if (hauteur < 0)
-			throw new IllegalArgumentException("Hauteur invalide.");
+			throw new IllegalArgumentException("Hauteur négative : " +
+			    hauteur);
 		this.hauteur = hauteur;
+	}
+
+	/**
+	 * Ajoute une figure à ce dessin. La figure est placée à la fin de la liste des
+	 * figures de ce dessin et sera dessinée après toutes celles qui la précèdent.
+	 *
+	 * @param f la figure à ajouter à ce dessin
+	 */
+	public void ajouterFigure(Figure f)
+	{
+		if (f == null)
+			throw new IllegalArgumentException("Figure nulle.");
+		figures.add(f);
+	}
+
+	/**
+	 * Renvoie la liste des figures de ce dessin.
+	 *
+	 * @return la suite des figures de ce dessin dans l'ordre de leur affichage
+	 */
+	public Collection<Figure> listerFigures()
+	{
+		return new ArrayList<>(figures);
+	}
+
+	/**
+	 * Renvoie une représentation sous forme de chaîne de caractères de ce dessin.
+	 *
+	 * @return une chaîne de caractères donnant toutes les informations concernant
+	 *         ce dessin
+	 */
+	@Override
+	public String toString()
+	{
+		return String.format("%s par %s (%s)", titre, auteur, dateCreation);
+	}
+
+	/**
+	 * Dessine les figures de ce dessin sur le contexte graphique.  Les figures sont
+	 * dessinées dans l'ordre dans lequel elles apparaissent dans la liste des
+	 * figures.  Cette méthode est appelée automatiquement par Swing lorsque le
+	 * dessin est placé dans une {@link javax.swing.JFrame}.
+	 *
+	 * @param g le contexte graphique sur lequel le dessin apparait
+	 */
+	@Override
+	public void paint(Graphics g)
+	{
+		Graphics2D g2d;
+
+		g2d = (Graphics2D)g;
+		for (Figure f : figures)
+			f.dessiner(g2d);
 	}
 }

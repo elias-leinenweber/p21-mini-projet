@@ -1,19 +1,29 @@
 package dessinvectoriel;
 
 /**
- * La classe non modifiable {@code Vecteur} permet de gérer la position des
- * figures dans un espace à 2 dimensions, avec deux coordonnées {@code x} et
- * {@code y}.
+ * La classe non modifiable {@code Vecteur}.
+ * <p>
+ * Les vecteurs permettent de gérer les positions des figures.
+ * <p>
+ * Dans un repère cartésien, si l'on place l'origine d'un vecteur à l'origine du
+ * repère, on obtient le point <i>P</i> qui est l'extrémité du vecteur.  Les
+ * composantes du vecteur sont les coordonnées du point <i>P</i>.
+ * <p>
+ * Si le point <i>P</i> a les coordonnées
+ * (<i>P<sub>x</sub></i>, <i>P<sub>y</sub></i>), les composantes du vecteur dont
+ * <i>P</i> est l'extrémité sont <i>P<sub>x</sub></i> et <i>P<sub>y</sub></i>,
+ * et on note le vecteur (<i>P<sub>x</sub></i>, <i>P<sub>y</sub></i>).
  */
 public class Vecteur {
-	private final double x, y;
+	private final double	x;
+	private final double	y;
 
 
 	/**
 	 * Initialise ce nouveau vecteur avec des coordonnées cartésiennes.
 	 *
-	 * @param x la composante x du vecteur
-	 * @param y la composante y du vecteur
+	 * @param x la composante <i>x</i> du vecteur
+	 * @param y la composante <i>y</i> du vecteur
 	 */
 	public Vecteur(double x, double y)
 	{
