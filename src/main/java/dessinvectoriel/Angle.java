@@ -38,6 +38,7 @@ public class Angle {
      *
      * @param deg la mesure de l'angle en degrés
      * @return l'angle fabriqué
+     * @see java.lang.Math#toRadians
      */
     public static Angle degres(double deg)
     {
@@ -58,9 +59,10 @@ public class Angle {
     /**
      * Renvoie l'angle de la coordonnée polaire pour un point spécifié.
      *
-     * @param dX coordonnée cartésienne en {@code x} du point
-     * @param dY coordonnée cartésienne en {@code y} du point
-     * @return l'angle de la coordonnée polaire du point {@code (dX, dY)}
+     * @param dX coordonnée cartésienne en <i>x</i> du point
+     * @param dY coordonnée cartésienne en <i>y</i> du point
+     * @return l'angle de la coordonnée polaire du point
+     *         ({@code dX},&nbsp;{@code dY})
      * @see java.lang.Math#atan2
      */
     public static Angle atan(double dX, double dY)
@@ -72,6 +74,7 @@ public class Angle {
      * Renvoie la mesure de cet angle en degrés.
      *
      * @return la mesure en degrés de cet angle
+     * @see java.lang.Math#toDegrees
      */
     public double getDegres()
     {
@@ -113,8 +116,8 @@ public class Angle {
     }
 
     /**
-     * Ajoute un angle à cet angle. Construit et renvoie un angle dont la mesure
-     * est la somme des mesures des 2 angles.
+     * Ajoute un angle à cet angle.  Construit et renvoie un angle dont la
+     * mesure est la somme des mesures des 2 angles.
      *
      * @param theta l'angle à ajouter
      * @return un nouvel angle dont la mesure est la somme de la mesure de cet
@@ -122,8 +125,7 @@ public class Angle {
      */
     public Angle ajouter(Angle theta)
     {
-        if (theta == null)
-            throw new IllegalArgumentException("Angle nul.");
+        // TODO Objects#requireNonNull
         return ajouterRadians(theta.mesure);
     }
 
@@ -152,8 +154,8 @@ public class Angle {
     /**
      * Renvoie une chaîne qui contient la mesure en degrés de cet angle.
      *
-     * @return une chaine de la forme {@code 37°} pour un angle de mesure 37
-     * degrés
+     * @return une chaine de la forme {@code 37°} pour un angle de mesure
+     *         37 degrés
      */
     @Override
     public String toString()
