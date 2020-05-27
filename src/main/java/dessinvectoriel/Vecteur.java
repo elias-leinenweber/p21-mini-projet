@@ -21,7 +21,6 @@ public class Vecteur {
     private final double x;
     private final double y;
 
-
     /**
      * Initialise ce nouveau vecteur avec des coordonnées cartésiennes.
      *
