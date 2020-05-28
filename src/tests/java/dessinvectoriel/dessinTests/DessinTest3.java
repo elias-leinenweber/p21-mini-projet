@@ -14,8 +14,8 @@ class DessinTest3 {
     void testDessinDate1(){
         try
         {
-            new Dessin(null,"De Vinci", LocalDate.now(),200,200);
-            fail("Le constructeur accepte un titre null.");
+            new Dessin("","De Vinci", LocalDate.now(),200,200);
+            fail("Le constructeur accepte un titre vide.");
         }
         catch (IllegalArgumentException ex)
         {
@@ -23,7 +23,7 @@ class DessinTest3 {
         }
         catch (Exception ex)
         {
-            fail("Le constructeur lance " + ex + " pour un titre null.");
+            fail("Le constructeur lance " + ex + " pour un titre vide.");
         }
     }
 
@@ -31,8 +31,8 @@ class DessinTest3 {
     void testDessinDate2(){
         try
         {
-            new Dessin("La Joconde",null, LocalDate.now(),200,200);
-            fail("Le constructeur accepte un auteur null.");
+            new Dessin("La Joconde","", LocalDate.now(),200,200);
+            fail("Le constructeur accepte un auteur vide.");
         }
         catch (IllegalArgumentException ex)
         {
@@ -40,7 +40,7 @@ class DessinTest3 {
         }
         catch (Exception ex)
         {
-            fail("Le constructeur lance " + ex + " pour un auteur null.");
+            fail("Le constructeur lance " + ex + " pour un auteur vide.");
         }
     }
 
@@ -51,7 +51,7 @@ class DessinTest3 {
             new Dessin("La Joconde","De Vinci", null,200,200);
             fail("Le constructeur accepte une date de création null.");
         }
-        catch (IllegalArgumentException ex)
+        catch (NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }

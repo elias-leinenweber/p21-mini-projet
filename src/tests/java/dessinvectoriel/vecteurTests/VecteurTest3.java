@@ -22,7 +22,7 @@ class VecteurTest3 {
             v.ajouter(null);
             fail("La méthode accepte un vecteur null.");
         }
-        catch (IllegalArgumentException ex)
+        catch (NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }
@@ -38,7 +38,7 @@ class VecteurTest3 {
             v.soustraire(null);
             fail("La méthode accepte un vecteur null.");
         }
-        catch (IllegalArgumentException ex)
+        catch (NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }

@@ -24,7 +24,7 @@ class DessinTest4 {
             d.ajouterFigure(null);
             fail("La méthode accepte une figure null.");
         }
-        catch(IllegalArgumentException ex)
+        catch(NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }
@@ -38,16 +38,16 @@ class DessinTest4 {
     void testSetAuteur1() {
 
         try {
-            d.setAuteur(null);
-            fail("La méthode accepte un argument null.");
+            d.setAuteur("");
+            fail("La méthode accepte un auteur vide.");
         }
-        catch(IllegalArgumentException ex)
+        catch(NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }
         catch (Exception ex)
         {
-            fail("La méthode lance " + ex + " pour un auteur null.");
+            fail("La méthode lance " + ex + " pour un auteur vide.");
         }
     }
 
@@ -72,8 +72,8 @@ class DessinTest4 {
     void testSetTitre1() {
 
         try {
-            d.setTitre(null);
-            fail("La méthode accepte un argument null.");
+            d.setTitre("");
+            fail("La méthode accepte un titre vide.");
         }
         catch(IllegalArgumentException ex)
         {
@@ -81,7 +81,7 @@ class DessinTest4 {
         }
         catch (Exception ex)
         {
-            fail("La méthode lance " + ex + " pour un titre null.");
+            fail("La méthode lance " + ex + " pour un titre vide.");
         }
     }
 
@@ -110,7 +110,7 @@ class DessinTest4 {
             d.setDateCreation(null);
             fail("La méthode accepte une date de création null.");
         }
-        catch (IllegalArgumentException ex)
+        catch (NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }

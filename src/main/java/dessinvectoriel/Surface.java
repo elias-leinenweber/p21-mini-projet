@@ -112,7 +112,7 @@ public abstract class Surface extends Figure {
     /**
      * Modifie la couleur de remplissage de cette surface.
      * <p>
-     * Si la couleur spécifiée est la référence {code null}, la surface n'est
+     * Si la couleur spécifiée est la référence {@code null}, la surface n'est
      * pas remplie et reste transparente.
      *
      * @param couleurRemplissage un objet {@link Color} indiquant la nouvelle

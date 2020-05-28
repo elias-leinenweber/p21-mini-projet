@@ -25,9 +25,8 @@ public class Cercle extends Surface {
      */
     public Cercle(Vecteur position, double rayon)
     {
-        super(position);
-        if (rayon < 0)
-            throw new IllegalArgumentException("Rayon négatif : " + rayon);
+        this(position, rayon, getCouleurTraitParDefaut(),
+            getEpaisseurTraitParDefaut(), getCouleurRemplissageParDefaut());
     }
 
     /**
@@ -136,9 +135,9 @@ public class Cercle extends Surface {
     @Override
     public void dessiner(Graphics2D g)
     {
-        int x = (int)(getPosition().getX() - rayon);
-        int y = (int)(getPosition().getY() - rayon);
-        int diametre = (int)getDiametre();
+        final int x = (int)(getPosition().getX() - rayon);
+        final int y = (int)(getPosition().getY() - rayon);
+        final int diametre = (int)getDiametre();
 
         if (initRemplissage(g))
             g.fillOval(x, y, diametre, diametre);

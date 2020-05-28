@@ -125,7 +125,6 @@ public class Angle {
      */
     public Angle ajouter(Angle theta)
     {
-        // TODO Objects#requireNonNull
         return ajouterRadians(theta.mesure);
     }
 
