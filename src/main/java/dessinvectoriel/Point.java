@@ -60,15 +60,13 @@ public class Point extends Figure {
     @Override
     public void dessiner(Graphics2D g)
     {
-        int diametre, rayon, x, y;
+        if (initTrait(g)) {
+            final int diametre = getEpaisseurTrait();
+            final int rayon = diametre / 2;
 
-        diametre = getEpaisseurTrait();
-        rayon = diametre / 2;
-        x = (int)getPosition().getX();
-        y = (int)getPosition().getY();
-
-        if (initTrait(g))
-            g.fillOval(x - rayon, y - rayon, diametre, diametre);
+            g.fillOval((int)getPosition().getX() - rayon,
+                (int)getPosition().getY() - rayon, diametre, diametre);
+        }
     }
 
     /**
