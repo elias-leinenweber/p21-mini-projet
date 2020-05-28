@@ -17,40 +17,40 @@ class AngleTest1 {
 
     @Test
     void getDegres() {
-        assertEquals(90, a.getDegres(), 1);
+        assertDoubleEquals(90, a.getDegres());
     }
 
     @Test
     void getRadians() {
-        assertEquals(Math.PI / 2, a.getRadians(), 1);
+        assertDoubleEquals(Math.PI / 2, a.getRadians());
     }
 
     @Test
     void ajouterDegres() {
         a = a.ajouterDegres(90);
-        assertEquals(180,a.getDegres(),1);
+        assertDoubleEquals(180, a.getDegres());
     }
 
     @Test
     void ajouterRadians() {
         a = a.ajouterRadians(Math.PI / 2);
-        assertEquals(Math.PI , a.getRadians(),1);
+        assertDoubleEquals(Math.PI, a.getRadians());
     }
 
     @Test
     void ajouter() {
         a = a.ajouter(Angle.DROIT);
-        assertEquals(180,a.getDegres(),1);
+        assertDoubleEquals(180, a.getDegres());
     }
 
     @Test
     void sin() {
-        assertEquals(Math.sin(a.getRadians()), a.sin(), 1);
+        assertDoubleEquals(Math.sin(a.getRadians()), a.sin());
     }
 
     @Test
     void cos() {
-        assertEquals(Math.cos(a.getRadians()), a.cos(), 1);
+        assertDoubleEquals(Math.cos(a.getRadians()), a.cos());
     }
 
     @Test
@@ -58,5 +58,10 @@ class AngleTest1 {
         assertEquals("37°", Angle.degres(37).toString());
         assertEquals("90°", Angle.radians(Math.PI / 2).toString());
         assertEquals("66.6°", Angle.degres(66.6).toString());
+    }
+
+    private void assertDoubleEquals(double expected, double actual)
+    {
+        assertEquals(expected, actual, Math.ulp(expected));
     }
 }
