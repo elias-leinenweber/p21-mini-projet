@@ -47,7 +47,7 @@ public class Point extends Figure {
      * @param x la coordonnée x de la position du point
      * @param y la coordonnée y de la position du point
      */
-    public Point(int x, int y)
+    public Point(double x, double y)
     {
         super(new Vecteur(x, y));
     }
