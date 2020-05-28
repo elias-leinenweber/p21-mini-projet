@@ -27,19 +27,19 @@ class AngleTest1 {
 
     @Test
     void ajouterDegres() {
-        a.ajouterDegres(90);
+        a = a.ajouterDegres(90);
         assertEquals(180,a.getDegres(),1);
     }
 
     @Test
     void ajouterRadians() {
-        a.ajouterRadians(Math.PI / 2);
+        a = a.ajouterRadians(Math.PI / 2);
         assertEquals(Math.PI , a.getRadians(),1);
     }
 
     @Test
     void ajouter() {
-        a.ajouter(Angle.DROIT);
+        a = a.ajouter(Angle.DROIT);
         assertEquals(180,a.getDegres(),1);
     }
 
@@ -55,6 +55,8 @@ class AngleTest1 {
 
     @Test
     void testToString() {
-        assertTrue(a.toString().contains(a.getDegres()+"°"));
+        assertEquals("37°", Angle.degres(37).toString());
+        assertEquals("90°", Angle.radians(Math.PI / 2).toString());
+        assertEquals("66.6°", Angle.degres(66.6).toString());
     }
 }

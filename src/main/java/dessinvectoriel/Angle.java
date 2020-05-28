@@ -1,5 +1,7 @@
 package dessinvectoriel;
 
+import java.text.DecimalFormat;
+
 /**
  * La classe non modifiable {@code Angle}.
  * <p>
@@ -159,6 +161,9 @@ public class Angle {
     @Override
     public String toString()
     {
-        return String.format("%f°", getDegres());
+        DecimalFormat df = new DecimalFormat();
+
+        df.setMinimumFractionDigits(0);
+        return df.format(getDegres()) + "°";
     }
 }
