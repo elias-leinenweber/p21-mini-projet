@@ -30,7 +30,7 @@ class VecteurTest2 {
             new Vecteur(2,null);
             fail("Le constructeur accepte un angle null.");
         }
-        catch (IllegalArgumentException ex)
+        catch (NullPointerException | IllegalArgumentException ex)
         {
             // OK
         }
