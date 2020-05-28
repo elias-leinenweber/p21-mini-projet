@@ -52,9 +52,6 @@ public class Vecteur {
     {
         if (rayon < 0)
             throw new IllegalArgumentException("Rayon négatif : " + rayon);
-        // TODO Objects#requireNonNull
-        if (orientation == null)
-            throw new IllegalArgumentException("Orientation nulle.");
         x = rayon * orientation.cos();
         y = rayon * orientation.sin();
     }
@@ -98,9 +95,6 @@ public class Vecteur {
      */
     public Vecteur ajouter(Vecteur autre)
     {
-        // TODO Objects#requireNonNull
-        if (autre == null)
-            throw new IllegalArgumentException("Autre vecteur nul.");
         return new Vecteur(x + autre.x, y + autre.y);
     }
 
@@ -136,9 +130,6 @@ public class Vecteur {
      */
     public Vecteur soustraire(Vecteur autre)
     {
-        // TODO Objects#requireNonNull
-        if (autre == null)
-            throw new IllegalArgumentException("Autre vecteur nul.");
         return ajouter(autre.oppose());
     }
 
