@@ -1,6 +1,7 @@
 package dessinvectoriel.angleTests;
 
 import dessinvectoriel.Angle;
+import java.util.Locale;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,11 +9,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AngleTest1 {
 
-    Angle a;
+    Angle a, a1;
+    double rad1, rad2;
 
     @BeforeEach
     void setUp() {
         a = Angle.degres(90);
+        rad1 = 1.23456789;
+        a1 = Angle.radians(rad1);
+    }
+
+    @Test
+    void testConstructeur()
+    {
+        assertEquals(rad1, Angle.radians(rad1 + 1234 * Math.PI).getRadians(), 1e-10);
+        assertEquals(rad1, Angle.radians(rad1 - 5678 * Math.PI).getRadians(), 1e-10);
     }
 
     @Test
@@ -28,11 +39,13 @@ class AngleTest1 {
     @Test
     void testAngleAtan(){
         assertDoubleEquals(90,Angle.atan(0,1).getDegres());
+        assertDoubleEquals(-Math.PI / 4, Angle.atan(1, -1).getRadians());
     }
 
     @Test
     void testGetDegres() {
         assertDoubleEquals(90, a.getDegres());
+        assertDoubleEquals(rad1, Angle.degres(a1.getDegres()).getRadians());
     }
 
     @Test
@@ -44,6 +57,7 @@ class AngleTest1 {
     void testAjouterDegres() {
         a = a.ajouterDegres(90);
         assertDoubleEquals(180, a.getDegres());
+        assertDoubleEquals(40, a.ajouterDegres(220).getDegres());
     }
 
     @Test
@@ -70,6 +84,7 @@ class AngleTest1 {
 
     @Test
     void testToString() {
+        Locale.setDefault(Locale.FRENCH);
         assertEquals("37°", Angle.degres(37).toString());
         assertEquals("90°", Angle.radians(Math.PI / 2).toString());
         assertEquals("66,6°", Angle.degres(66.6).toString());

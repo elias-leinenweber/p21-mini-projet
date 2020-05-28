@@ -30,9 +30,17 @@ public class Angle {
     /** la mesure de l'angle en radians */
     private final double mesure;
 
+    /**
+     * Initialise la mesure de l'angle à partir d'une valeur en radians.
+     * <p>
+     * La valeur est normalisée dans l'intervalle [0; 2&pi;].
+     * 
+     * @param rad la mesure de l'angle en radians
+     * @see Math#IEEEremainder
+     */
     private Angle(double rad)
     {
-        mesure = rad % (2 * Math.PI);
+        mesure = Math.IEEEremainder(rad, 2 * Math.PI);
     }
 
     /**
@@ -97,8 +105,8 @@ public class Angle {
      * Ajoute des degrés à la mesure de cet angle.
      *
      * @param deg les degrés à ajouter à la mesure de cet angle
-     * @return un nouvel angle dont la mesure est celle de cet angle augmenté de
-     *         {@code deg}
+     * @return un nouvel angle dont la mesure est celle de cet angle augmentée
+     *         de {@code deg}
      */
     public Angle ajouterDegres(double deg)
     {

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AngleTests2 {
+class AngleTest2 {
 
     @Test
     void testAjouter(){
@@ -14,7 +14,7 @@ class AngleTests2 {
             Angle.degres(90).ajouter(null);
             fail("La méthode accepte un angle null");
         }
-        catch(NullPointerException ex)
+        catch(IllegalArgumentException | NullPointerException ex)
         {
             // OK
         }
