@@ -2,6 +2,7 @@ package dessinvectoriel;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 
 /**
  * La classe modifiable {@code Rectangle}.
@@ -162,19 +163,13 @@ public class Rectangle extends Surface {
     @Override
     public void dessiner(Graphics2D g)
     {
-        final int nPoints = 4;
-        final int[] xPoints = new int[nPoints];
-        final int[] yPoints = new int[nPoints];
-        final Vecteur[] sommets = getSommets();
-
-        for (int i = 0; i < nPoints; ++i) {
-            xPoints[i] = (int)sommets[i].getX();
-            yPoints[i] = (int)sommets[i].getY();
-        }
+        Polygon rectangle = new Polygon();
+        for (Vecteur sommet : getSommets())
+            rectangle.addPoint((int)sommet.getX(), (int)sommet.getY());
         if (initRemplissage(g))
-            g.fillPolygon(xPoints, yPoints, nPoints);
+            g.fillPolygon(rectangle);
         if (initTrait(g))
-            g.drawPolygon(xPoints, yPoints, nPoints);
+            g.drawPolygon(rectangle);
     }
 
     /**

@@ -161,10 +161,11 @@ public class Vecteur {
      * <i>P<sub>y</sub></i><sup>2</sup>).
      *
      * @return la longueur de ce vecteur
+     * @see Math#hypot
      */
     public double longueur()
     {
-        return Math.sqrt(x * x + y * y);
+        return Math.hypot(x, y);
     }
 
     /**
