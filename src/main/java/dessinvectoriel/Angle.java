@@ -40,7 +40,10 @@ public class Angle {
      */
     private Angle(double rad)
     {
-        mesure = Math.IEEEremainder(rad, 2 * Math.PI);
+        rad %= 2 * Math.PI;
+        if (rad < 0)
+            rad += 2 * Math.PI;
+        mesure = rad;
     }
 
     /**
@@ -169,9 +172,6 @@ public class Angle {
     @Override
     public String toString()
     {
-        DecimalFormat df = new DecimalFormat();
-
-        df.setMinimumFractionDigits(0);
-        return df.format(getDegres()) + "°";
+        return getDegres() + "°";
     }
 }

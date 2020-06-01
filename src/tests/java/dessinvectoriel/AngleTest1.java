@@ -38,7 +38,7 @@ class AngleTest1 {
     @Test
     void testAngleAtan(){
         assertDoubleEquals(90,Angle.atan(0,1).getDegres());
-        assertDoubleEquals(-Math.PI / 4, Angle.atan(1, -1).getRadians());
+        assertDoubleEquals(7 * Math.PI / 4, Angle.atan(1, -1).getRadians());
     }
 
     @Test
@@ -83,10 +83,10 @@ class AngleTest1 {
 
     @Test
     void testToString() {
-        Locale.setDefault(Locale.FRENCH);
-        assertEquals("37°", Angle.degres(37).toString());
-        assertEquals("90°", Angle.radians(Math.PI / 2).toString());
-        assertEquals("66,6°", Angle.degres(66.6).toString());
+        Locale.setDefault(Locale.ENGLISH);
+        assertEquals("37.0°", Angle.degres(37).toString());
+        assertEquals("90.0°", Angle.radians(Math.PI / 2).toString());
+        assertEquals("66.6°", Angle.degres(66.6).toString());
     }
 
     @Test
