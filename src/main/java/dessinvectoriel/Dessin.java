@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -209,7 +209,7 @@ public class Dessin extends Canvas {
      *
      * @return la suite des figures de ce dessin dans l'ordre de leur affichage
      */
-    public Collection<Figure> listerFigures()
+    public List<Figure> listerFigures()
     {
         return new ArrayList<>(figures);
     }

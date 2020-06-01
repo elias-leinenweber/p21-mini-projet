@@ -67,8 +67,9 @@ public class Rectangle extends Surface {
      * @param couleurTrait la couleur du trait
      * @param epaisseurTrait l'épaisseur du trait
      * @param couleurRemplissage la couleur de remplissage du rectangle
-     * @throws IllegalArgumentException si la longueur est inférieure à la
-     *                                  largeur
+     * @throws IllegalArgumentException si la longueur ou la largeur sont
+     *                                  négatives, ou si la longueur est
+     *                                  inférieure à la largeur
      */
     public Rectangle(Vecteur position, Angle orientation, double longueur,
                      double largeur, Color couleurTrait, int epaisseurTrait,
@@ -76,10 +77,12 @@ public class Rectangle extends Surface {
     {
         super(position, orientation, couleurTrait, epaisseurTrait,
             couleurRemplissage);
+        if (longueur < 0)
+            throw new IllegalArgumentException("Longueur négative : " + longueur);
+        if (largeur < 0)
+            throw new IllegalArgumentException("Largeur négative : " + largeur);
         if (longueur < largeur)
-            throw new IllegalArgumentException(
-                "Longueur inférieure à largeur : " + longueur
-            );
+            throw new IllegalArgumentException("Longueur inférieure à largeur");
         this.longueur = longueur;
         this.largeur = largeur;
     }
@@ -142,16 +145,29 @@ public class Rectangle extends Surface {
     public Vecteur[] getSommets()
     {
         Vecteur[] sommets;
-        Vecteur coteLong, coteCourt;
+        Vecteur coteCourt, coteLong, position;
 
-        sommets = new Vecteur[4];
-        coteLong = new Vecteur(longueur, getOrientation());
+        sommets   = new Vecteur[4];
+        position  = getPosition();
+        coteLong  = new Vecteur(longueur, getOrientation());
         coteCourt = new Vecteur(largeur, getOrientation().ajouter(Angle.DROIT));
 
-        sommets[0] = getPosition();
-        sommets[1] = sommets[0].ajouter(coteLong);
-        sommets[2] = sommets[1].ajouter(coteCourt);
-        sommets[3] = sommets[0].ajouter(coteCourt);
+        sommets[0] = position;
+        sommets[1] = position.ajouter(coteLong);
+        sommets[2] = position.ajouter(coteLong).ajouter(coteCourt);
+        sommets[3] = position.ajouter(coteCourt);
+        /*
+         * Autre version :
+         * <pre>
+         * for (int i = 0; i < 4; ++i) {
+         *     sommets[i] = position;
+         *     if ((0b11 << i & 0b100) != 0)
+         *         sommets[i] = sommets[i].ajouter(coteLong);
+         *     if ((0b11 << i & 0b1000) != 0)
+         *         sommets[i] = sommets[i].ajouter(coteCourt);
+         * }
+         * </pre>
+         */
         return sommets;
     }
 
