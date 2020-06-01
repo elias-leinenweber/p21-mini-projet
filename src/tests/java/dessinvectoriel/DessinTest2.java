@@ -1,15 +1,11 @@
-package dessinvectoriel.dessinTests;
+package dessinvectoriel;
 
-import dessinvectoriel.Dessin;
-import dessinvectoriel.Figure;
-import dessinvectoriel.Rectangle;
-import dessinvectoriel.Vecteur;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DessinTest2 {
 

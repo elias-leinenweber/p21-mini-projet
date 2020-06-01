@@ -1,12 +1,10 @@
-package dessinvectoriel.dessinTests;
+package dessinvectoriel;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import dessinvectoriel.Dessin;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class DessinTest1 {
 

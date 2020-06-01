@@ -1,3 +1,5 @@
+package testdessinvectoriel;
+
 import dessinvectoriel.*;
 
 import java.awt.Color;

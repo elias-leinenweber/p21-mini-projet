@@ -1,12 +1,10 @@
-package dessinvectoriel.vecteurTests;
+package dessinvectoriel;
 
-import dessinvectoriel.Vecteur;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Locale;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 class VecteurTest1 {
 
