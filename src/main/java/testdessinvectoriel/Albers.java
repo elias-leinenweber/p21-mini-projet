@@ -32,13 +32,13 @@ public class Albers implements Runnable
     private static void construireAlbers(Dessin f)
     {
         Color[] couleurs =
-        {
-            new Color(250, 150, 12),
-            new Color(174, 82, 7),
-            new Color(159, 73, 14),
-            new Color(151, 33, 23)
+        { 
+            new Color(250, 150, 12), 
+            new Color(174, 82, 7), 
+            new Color(159, 73, 14), 
+            new Color(151, 33, 23) 
         };
-
+        
         Rectangle c1 = new Rectangle(new Vecteur(110, 110), 282, 282);
         c1.setCouleurRemplissage(couleurs[0]);
         c1.setEpaisseurTrait(0);

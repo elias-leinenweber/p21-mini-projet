@@ -17,12 +17,7 @@ import dessinvectoriel.Vecteur;
 class DessinVectErreursTest
 {
     Vecteur origine = new Vecteur(10, 20);
-    @Test
-    void test()
-    {
-        origine = new Vecteur(4, Angle.DROIT);
-        fail(origine.toString() + " x = " + origine.getX() + " y = " + origine.getY());
-    }
+
     @Test
     void testCercleRayonNegatif()
     {
