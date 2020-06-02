@@ -1,7 +1,5 @@
 package dessinvectoriel;
 
-import java.text.DecimalFormat;
-
 /**
  * La classe non modifiable {@code Angle}.
  * <p>

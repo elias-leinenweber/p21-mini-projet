@@ -314,10 +314,10 @@ public abstract class Figure {
         final Vecteur translation = position.soustraire(centre);
 
         tourner(angle.getDegres());
-        setPosition(centre.ajouter(new Vecteur(
-            translation.getX() * angle.cos() - translation.getY() * angle.sin(),
-            translation.getX() * angle.sin() + translation.getY() * angle.cos()
-        )));
+        position = centre.ajouter(new Vecteur(
+            translation.longueur(),
+            translation.orientation().ajouter(angle)
+        ));
     }
 
     /**
@@ -343,7 +343,7 @@ public abstract class Figure {
      */
     protected boolean initTrait(Graphics2D g)
     {
-        boolean init = couleurTrait != null && epaisseurTrait > 0;
+        final boolean init = couleurTrait != null && epaisseurTrait > 0;
 
         if (init) {
             g.setPaint(couleurTrait);
