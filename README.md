@@ -1,6 +1,23 @@
 Dessin Vectoriel
 ================
 
+Rapport final
+-------------
+### Ce qui marche
+Tout.  Tous les tests unitaires passent et les deux programmes de test marchent
+parfaitement.
+
+### Ce qui ne marche pas
+Rien.
+
+### Spécifications non respectées
+Aucune.
+
+### Difficultés
+Aucune, à part les quelques révisions de trigonométrie, et la documentation de
+`Graphics2D` était suffisamment claire pour ce qui est du dessin des figures.
+
+
 Etat d'avancement au 28/05
 --------------------------
 Le projet (sources `.java` et javadoc) est terminé, et des tests unitaires ont
@@ -8,10 +25,10 @@ Le projet (sources `.java` et javadoc) est terminé, et des tests unitaires ont
 démo `Albers` et `DessinVectTest2` marchent parfaitement.
 
 Pour ce qui est de la conception, nous avons respecté au maximum possible la
-spécification (DCC et sujet).
+spécification (DCc et sujet).
 
-Pour la gestion des paramètres des méthodes, nous avons la poltique suivante :
-- si il y a une incohérence au niveau mathématique (longueur négative, ou
+Pour la gestion des paramètres des méthodes, nous avons la politique suivante :
+- s'il y a une incohérence au niveau mathématique (longueur négative, ou
   inférieure à la largeur dans le cas du rectangle, etc.), on lance une
   `IllegalArgumentException` ;
 - si le paramètre est la référence `null`, mais qu'il est directement utilisé
@@ -20,5 +37,5 @@ Pour la gestion des paramètres des méthodes, nous avons la poltique suivante :
 - sinon, si on affecte le paramètre à un attribut de classe ou d'une instance de
   classe, dans un constructeur ou un setter par exemple, on utilise
   `Objects#requireNonNull` pour suivre le principe
-  ["fail-fast"](https://en.wikipedia.org/wiki/Fail-fast) en déclenchant la
+  "[fail-fast](https://en.wikipedia.org/wiki/Fail-fast)" en déclenchant la
   `NullPointerException` dès que possible.
