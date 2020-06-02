@@ -75,8 +75,7 @@ public class Rectangle extends Surface {
                      double largeur, Color couleurTrait, int epaisseurTrait,
                      Color couleurRemplissage)
     {
-        super(position, orientation, couleurTrait, epaisseurTrait,
-            couleurRemplissage);
+        super(position, orientation, couleurTrait, epaisseurTrait, couleurRemplissage);
         if (longueur < 0)
             throw new IllegalArgumentException("Longueur négative : " + longueur);
         if (largeur < 0)
@@ -139,13 +138,23 @@ public class Rectangle extends Surface {
     
     /**
      * Renvoie les sommets de ce rectangle.
+     * <p>
+     * Une implémentation alternative :
+     * <pre>
+     * for (int i = 0; i < 4; ++i) {
+     *     sommets[i] = position;
+     *     if ((0b11 << i & 0b100) != 0)
+     *         sommets[i] = sommets[i].ajouter(coteLong);
+     *     if ((0b11 << i & 0b1000) != 0)
+     *         sommets[i] = sommets[i].ajouter(coteCourt);
+     * }
+     * </pre>
      *
      * @return un tableau de 4 vecteurs indiquant les 4 sommets de ce rectangle
      */
     public Vecteur[] getSommets()
     {
-        Vecteur[] sommets;
-        Vecteur coteCourt, coteLong, position;
+        Vecteur coteCourt, coteLong, position, sommets[];
 
         sommets   = new Vecteur[4];
         position  = getPosition();
@@ -156,18 +165,7 @@ public class Rectangle extends Surface {
         sommets[1] = position.ajouter(coteLong);
         sommets[2] = position.ajouter(coteLong).ajouter(coteCourt);
         sommets[3] = position.ajouter(coteCourt);
-        /*
-         * Autre version :
-         * <pre>
-         * for (int i = 0; i < 4; ++i) {
-         *     sommets[i] = position;
-         *     if ((0b11 << i & 0b100) != 0)
-         *         sommets[i] = sommets[i].ajouter(coteLong);
-         *     if ((0b11 << i & 0b1000) != 0)
-         *         sommets[i] = sommets[i].ajouter(coteCourt);
-         * }
-         * </pre>
-         */
+
         return sommets;
     }
 
@@ -179,9 +177,12 @@ public class Rectangle extends Surface {
     @Override
     public void dessiner(Graphics2D g)
     {
-        Polygon rectangle = new Polygon();
+        Polygon rectangle;
+
+        rectangle = new Polygon();
         for (Vecteur sommet : getSommets())
             rectangle.addPoint((int)sommet.getX(), (int)sommet.getY());
+
         if (initRemplissage(g))
             g.fillPolygon(rectangle);
         if (initTrait(g))

@@ -18,7 +18,7 @@ import java.util.Objects;
  */
 public abstract class Figure {
 
-    private static Angle orientationParDefaut = Angle.NUL;
+    private static Angle orientationParDefaut  = Angle.NUL;
     private static Color couleurTraitParDefaut = Color.BLACK;
     private static int epaisseurTraitParDefaut = 1;
 
@@ -49,8 +49,7 @@ public abstract class Figure {
      */
     public Figure(Vecteur position, Angle orientation)
     {
-        this(position, orientation, couleurTraitParDefaut,
-            epaisseurTraitParDefaut);
+        this(position, orientation, couleurTraitParDefaut, epaisseurTraitParDefaut);
     }
 
     /**

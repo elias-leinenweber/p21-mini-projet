@@ -151,7 +151,7 @@ public abstract class Surface extends Figure {
      */
     protected boolean initRemplissage(Graphics2D g)
     {
-        boolean init = couleurRemplissage != null;
+        final boolean init = couleurRemplissage != null;
 
         if (init)
             g.setPaint(couleurRemplissage);

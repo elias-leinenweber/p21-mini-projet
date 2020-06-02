@@ -112,10 +112,11 @@ public class Segment extends Figure {
     @Override
     public void dessiner(Graphics2D g)
     {
-        if (initTrait(g)) {
-            final Vecteur origine = getOrigine();
-            final Vecteur extremite = getExtremite();
+        Vecteur extremite, origine;
 
+        if (initTrait(g)) {
+            origine = getOrigine();
+            extremite = getExtremite();
             g.drawLine(
                 (int)origine.getX(), (int)origine.getY(),
                 (int)extremite.getX(), (int)extremite.getY()
