@@ -1,12 +1,9 @@
 package dessinvectoriel;
 
-import java.awt.Canvas;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * La classe modifiable {@code Dessin}.
@@ -43,6 +40,8 @@ public class Dessin extends Canvas {
                   int largeur, int hauteur)
     {
         setSize(largeur, hauteur);
+        setBackground(Color.WHITE);
+
         figures = new ArrayList<>();
         setTitre(titre);
         setAuteur(auteur);

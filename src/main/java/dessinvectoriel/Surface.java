@@ -1,7 +1,6 @@
 package dessinvectoriel;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
+import java.awt.*;
 
 /**
  * La classe abstraite modifiable {@code Surface}.
