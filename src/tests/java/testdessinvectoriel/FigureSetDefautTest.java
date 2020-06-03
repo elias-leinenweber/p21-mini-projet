@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.awt.Color;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import dessinvectoriel.Angle;
@@ -13,7 +15,30 @@ import dessinvectoriel.Vecteur;
 
 class FigureSetDefautTest
 {
+    static Color couleurTraitParDefaut;
+    static Angle orientationParDefaut;
+    static int epaisseurTraitParDefaut;
+    
+    @BeforeAll
+    static void getDefaults()
+    {
+        couleurTraitParDefaut = Figure.getCouleurTraitParDefaut();
+        orientationParDefaut = Figure.getOrientationParDefaut();
+        epaisseurTraitParDefaut = Figure.getEpaisseurTraitParDefaut();
+    }
+    
 
+    
+    @AfterAll
+    static void setDefaults()
+    {
+        Figure.setCouleurTraitParDefaut(couleurTraitParDefaut);
+        Figure.setOrientationParDefaut(orientationParDefaut);
+        Figure.setEpaisseurTraitParDefaut(epaisseurTraitParDefaut);
+    }
+
+    
+    
     @Test
     void testSetCouleurTraitParDefaut()
     {
