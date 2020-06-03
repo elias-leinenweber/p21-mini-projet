@@ -34,7 +34,6 @@ public class Angle {
      * La valeur est normalisée dans l'intervalle [0; 2&pi;].
      * 
      * @param rad la mesure de l'angle en radians
-     * @see Math#IEEEremainder
      */
     private Angle(double rad)
     {

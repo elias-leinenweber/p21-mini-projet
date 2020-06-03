@@ -1,6 +1,24 @@
 Dessin Vectoriel
 ================
 
+Instructions
+------------
+### Installation
+1. Créer un nouveau projet Java dans Eclipse.
+2. Clic-droit sur le nom du projet dans _Package Explorer_, puis _Import..._
+3. Dans la fenêtre qui s'ouvre, choisir _Archive File_, puis _Next >_ et
+   sélectionner l'archive `.zip` et enfin _Finish_.
+
+### Lancement des tests unitaires
+Tout d'abord, ajouter JUnit 5 au build path : ouvrir un fichier de tests
+quelconque, survoler `org.junit` (devrait être souligné en rouge) dans les
+imports, puis _Fix project setup..._ et cliquer _OK_ dans la fenêtre qui
+s'ouvre.
+
+Pour lancer nos propres tests (ceux dans `dessinvectoriel`), il suffit de
+clic-droit le package `dessinvectoriel` _> Run As > 2 JUnit Test_.
+
+
 Rapport final
 -------------
 ### Ce qui marche
@@ -26,7 +44,7 @@ la méthode).
 
 Nous avons également utilisé le mot-clé `final` dans le corps de certaines
 méthodes pour indiquer que la valeur qui suit ne change pas jusqu'à la fin du
-bloc et/ou qu'elle ne sert que de "cache", pour éviter des appels de getter
+bloc ou qu'elle ne sert que de "cache", pour éviter des appels de getter
 inutiles par exemple.
 
 Voir aussi [Vérification des paramètres](#vérification-des-paramètres).
